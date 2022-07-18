@@ -60,16 +60,23 @@ def binocular_videoPrediction():
 
     return res
 
-def binocular_pictureTransformation(picture1,picture2):
 
+def binocular_pictureTransformation(picture1, picture2):
     # Load detector
     bd = blackCircle_Finder
 
-     # bbox = od.detect(frame)
-    bboxl = bd.circle_detect(picture1)
-    bboxr = bd.circle_detect(picture2)
+    # bbox = od.detect(frame)
+    bboxl = bd.circle_detectImage(picture1)
+    bboxr = bd.circle_detectImage(picture2)
 
     # calculate the world coordinate
     wrold_now = calculate(bboxl, bboxr)
 
     return wrold_now
+
+
+if __name__ == '__main__':
+    imgl = cv2.imread("E:\\1\\l.jpg")
+    imgr = cv2.imread("E:\\1\\r.jpg")
+    target = binocular_pictureTransformation(imgl, imgr)
+    print(target)
