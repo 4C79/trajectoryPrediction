@@ -21,7 +21,7 @@ def init():
     x0 = 1
     y0 = 1
     z0 = 1
-    history_x =  []
+    history_x = []
     history_y = []
     history_z = []
     boas = []
