@@ -14,7 +14,7 @@ def prediction(frame):
         cx = 0
         cy = 0
 
-    predicted = kf.predict(cx, cy)
+    predicted = kf.predict2D(cx, cy)
     # cv2.rectangle(frame, (x, y), (x2, y2), (255, 0, 0), 4)
     cv2.circle(frame, (cx, cy), 20, (0, 0, 255), 4)
     cv2.circle(frame, (predicted[0], predicted[1]), 20, (255, 0, 0), 4)
@@ -24,10 +24,10 @@ def prediction(frame):
     cv2.waitKey(150)
 
 
-def binocular_videoPrediction():
+def binocular_videoPrediction(videoPathl,videoPathr):
     # load video
-    capl = cv2.VideoCapture("C:\\Users\\soda\\Desktop\\无人\\1l.avi")
-    capr = cv2.VideoCapture("C:\\Users\\soda\\Desktop\\无人\\1r.avi")
+    capl = cv2.VideoCapture(videoPathl)
+    capr = cv2.VideoCapture(videoPathr)
 
     # Load detector
     bd = blackCircle_Finder
@@ -54,7 +54,7 @@ def binocular_videoPrediction():
         print(wrold_now)
 
         # kalmanfilter pridict next world coordinate
-        predicted = kf.predict(wrold_now)
+        predicted = kf.predict2D(wrold_now)
 
         res.append(predicted)
 
