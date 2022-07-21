@@ -1,7 +1,7 @@
 # coding=utf-8
 import cv2
 import numpy as np
-import mvsdk
+from camera import mvsdk
 import platform
 from detect import orange_prediction
 from detect import blackCircle_Finder
@@ -25,8 +25,6 @@ def main_loop():
     # print(DevInfo)
 
     # 打开两个相机
-    hCamera0 = 0
-    hCamera1 = 1
     DevInfo0 = DevList[0]
     DevInfo1 = DevList[1]
 
@@ -59,6 +57,13 @@ def main_loop():
     mvsdk.CameraSetTriggerMode(hCamera0, 0)
     mvsdk.CameraSetTriggerMode(hCamera1, 0)
 
+    # 设置相机帧率
+    mvsdk.CameraSetFrameSpeed(hCamera0, 200)
+    mvsdk.CameraSetFrameSpeed(hCamera1, 200)
+
+    t = mvsdk.CameraGetFrameStatistic(DevList[0])
+    print("相机的当前帧率为："+str(t))
+
     # 手动曝光，曝光时间30ms
     mvsdk.CameraSetAeState(hCamera0, 0)
     mvsdk.CameraSetExposureTime(hCamera0, 3 * 1000)
@@ -79,9 +84,9 @@ def main_loop():
     pFrameBuffer1 = mvsdk.CameraAlignMalloc(FrameBufferSize1, 16)
 
     time0 = 0  # 图片保存的文件名初始化
-    time1 = 100
+    time1 = 10000
 
-    while (cv2.waitKey(1) & 0xFF) != ord('q'):  # 4ms触发一次，但是好像相机不够支持？
+    while (cv2.waitKey(2) & 0xFF) != ord('q'):  # 1ms触发一次，但是好像相机不够支持？
         # 从相机取一帧图片
         try:
             pRawData0, FrameHead0 = mvsdk.CameraGetImageBuffer(hCamera0, 1)
@@ -116,11 +121,16 @@ def main_loop():
             frame1 = cv2.resize(frame1, (640,480), interpolation = cv2.INTER_LINEAR)
             cv2.imshow("Press q to end 1", frame1)
 
+            path0 = "E:\\2\\" + str(time0) + ".jpg"
+            path1 = "E:\\2\\" + str(time1) + ".jpg"
+
+            cv2.imwrite(path0, frame0)
+            cv2.imwrite(path1, frame1)
             # op.prediction(frame0, time0)
             # op.prediction(frame1, time1)
-            #
-            # time0 += 1
-            # time1 += 1
+
+            time0 += 1
+            time1 += 1
         # print(bd.test())
 
         # frame = cv2.resize(frame, (640,480), interpolation = cv2.INTER_LINEAR)

@@ -1,7 +1,7 @@
 # coding=utf-8
 import cv2
 import numpy as np
-import mvsdk
+from camera import mvsdk
 import platform
 
 
@@ -49,7 +49,7 @@ class Camera(object):
 
         # 手动曝光，曝光时间30ms
         mvsdk.CameraSetAeState(hCamera, 0)
-        mvsdk.CameraSetExposureTime(hCamera, 30 * 1000)
+        mvsdk.CameraSetExposureTime(hCamera, 1 * 1000)
 
         # 让SDK内部取图线程开始工作
         mvsdk.CameraPlay(hCamera)
@@ -110,13 +110,17 @@ def main_loop():
         cam = Camera(DevList[i])
         if cam.open():
             cams.append(cam)
-
+    time0 = 0  # 图片保存的文件名初始化
     while (cv2.waitKey(1) & 0xFF) != ord('q'):
         for cam in cams:
             frame = cam.grab()
+            path = "E:\\2\\" + str(time0) + ".jpg"
+            cv2.imwrite(path, frame)
+            time0 += 1
             if frame is not None:
                 frame = cv2.resize(frame, (640, 480), interpolation=cv2.INTER_LINEAR)
                 cv2.imshow("{} Press q to end".format(cam.DevInfo.GetFriendlyName()), frame)
+
 
     for cam in cams:
         cam.close()

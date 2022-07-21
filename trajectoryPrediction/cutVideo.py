@@ -22,7 +22,7 @@ def video2frame(videos_path, frames_save_path, time_interval):
 
 
 if __name__ == '__main__':
-    videos_path = 'F:\\姜\\相机\\高速相机MS28-H\\1.avi'
+    videos_path = 'F:\\姜\\相机\\高速相机MS28-H\\1\\1.MP4'
     frames_save_path = 'E:\\1\\'
     time_interval = 1  # 隔一帧保存一次
     video2frame(videos_path, frames_save_path, time_interval)
