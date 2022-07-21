@@ -131,7 +131,7 @@ def main_loop():
 
             time0 += 1
             time1 += 1
-        # print(bd.test())
+         # print(bd.test())
 
         # frame = cv2.resize(frame, (640,480), interpolation = cv2.INTER_LINEAR)
         # cv2.imshow("Press q to end", frame)
