@@ -48,7 +48,7 @@ def circle_detectImage(image):
     # 霍夫变换圆检测
     circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, 50, param1=100, param2=30, minRadius=1, maxRadius=100)
     if circles is None:
-        return (0, 0)
+        return 0
     for circle in circles[0]:
         # 圆的基本信息
         # print(circle[2])

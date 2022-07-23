@@ -34,6 +34,11 @@ def getAns(path_l,path_r):
         # 计算圆心三维坐标
         tmp = calculate(bf.circle_detectImage(l),bf.circle_detectImage(r))
 
+        # 坚持圆失败
+        if(tmp==False):
+            print("检测失败")
+            continue
+
         # save result
         res.append(tmp)
 

@@ -79,7 +79,8 @@ class PNPSolver():
 
     def solver(self):
 
-        retval, self.rvec, self.tvec = cv2.solvePnP(self.Points3D, self.Points2D, self.cameraMatrix, self.distCoefs,flags=cv2.SOLVEPNP_EPNP)
+        retval, self.rvec, self.tvec = cv2.solvePnP(self.Points3D, self.Points2D, self.cameraMatrix, self.distCoefs,
+                                                    flags=cv2.SOLVEPNP_EPNP)
         thetax, thetay, thetaz = self.rotationVectorToEulerAngles(self.rvec, 0)
         x = self.tvec[0][0]
         y = self.tvec[1][0]
@@ -213,6 +214,9 @@ def all_path(dirname):
 
 
 def calculate(tar_1, tar_2):
+    if (tar_1 == 0 or tar_2 == 0):
+        return  False
+
     p1 = [[[-33, 0, 22],
            [0, 0, 0],
            [0, 60, 0],
@@ -225,9 +229,9 @@ def calculate(tar_1, tar_2):
            [679, 1170],
            [1275, 1214],
            [765, 1062]]]
-    print("***************************************")
-    print("Begin")
-    print("***************************************")
+    # print("***************************************")
+    # print("Begin")
+    # print("***************************************")
     parser_l = argparse.ArgumentParser(description='test')
     parser_l.add_argument('-file', type=str, default='calibration_l.csv')
     args_l = parser_l.parse_args()
@@ -278,7 +282,7 @@ def calculate(tar_1, tar_2):
     p4psolver2.Points3D[0] = np.array([P21, P22, P23, P24])
     p4psolver2.Points2D[0] = np.array([p21, p22, p23, p24])
     p4psolver2.point2find = np.array([tar_2[0], tar_2[1]])
-    #print(p4psolver2.point2find)
+    # print(p4psolver2.point2find)
     p4psolver2.getudistmap(args_r.file)
     p4psolver2.solver()
 
