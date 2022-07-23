@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 
+
 def circle_detectFrame(frame):
     # 灰度化
     # gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -35,7 +36,9 @@ def circle_detectFrame(frame):
         box = (x, y)
         return box
 
+
 def circle_detectImage(image):
+
     # 灰度化
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     # 输出图像大小，方便根据图像大小调节minRadius和maxRadius
@@ -71,6 +74,6 @@ def circle_detectImage(image):
 
 
 if __name__ == '__main__':
-    img = cv2.imread("E:\\2\\2.jpg")
+    img = cv2.imread("..\data\l\\0.jpg")
     tmp = circle_detectImage(img)
     print(tmp)

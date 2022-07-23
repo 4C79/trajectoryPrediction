@@ -6,9 +6,10 @@ import platform
 from detect import orange_prediction
 from detect import blackCircle_Finder
 from detect import placement_prediction
+import os
 
 
-def main_loop():
+def main_loop(path):
     op = orange_prediction
     bd = blackCircle_Finder
 
@@ -62,10 +63,10 @@ def main_loop():
     mvsdk.CameraSetFrameSpeed(hCamera0, 200)
     mvsdk.CameraSetFrameSpeed(hCamera1, 200)
 
-    t = mvsdk.CameraGetFrameStatistic(DevList[0])
-    print("相机的当前帧率为："+str(t))
+    # t = mvsdk.CameraGetFrameSpeed(hCamera1)
+    # print("相机的当前帧率为："+str(t))
 
-    # 手动曝光，曝光时间30ms
+    # 手动曝光，曝光时间20ms
     mvsdk.CameraSetAeState(hCamera0, 0)
     mvsdk.CameraSetExposureTime(hCamera0, 3 * 1000)
     mvsdk.CameraSetAeState(hCamera1, 0)
@@ -85,7 +86,6 @@ def main_loop():
     pFrameBuffer1 = mvsdk.CameraAlignMalloc(FrameBufferSize1, 16)
 
     time0 = 0  # 图片保存的文件名初始化
-    time1 = 10000
 
     while (cv2.waitKey(2) & 0xFF) != ord('q'):  # 1ms触发一次，但是好像相机不够支持？
         # 从相机取一帧图片
@@ -116,26 +116,18 @@ def main_loop():
             frame1 = frame1.reshape((FrameHead1.iHeight, FrameHead1.iWidth,
                                      1 if FrameHead1.uiMediaType == mvsdk.CAMERA_MEDIA_TYPE_MONO8 else 3))
 
-            frame0 = cv2.resize(frame0, (640, 480), interpolation=cv2.INTER_LINEAR)
-            cv2.imshow("Press q to end 0", frame0)
+            # frame0 = cv2.resize(frame0, (640, 480), interpolation=cv2.INTER_LINEAR)
+            # frame1 = cv2.resize(frame1, (640, 480), interpolation=cv2.INTER_LINEAR)
+            # cv2.imshow("Press q to end", frame0)
+            # cv2.imshow("Press q to end", frame1)
 
-            frame1 = cv2.resize(frame1, (640,480), interpolation = cv2.INTER_LINEAR)
-            cv2.imshow("Press q to end 1", frame1)
-
-            path0 = "data/l/" + str(time0) + ".jpg"
-            path1 = "data/r/" + str(time1) + ".jpg"
+            path0 = path + "/l/" + str(time0) + ".jpg"
+            path1 = path + "/r/" + str(time0) + ".jpg"
 
             cv2.imwrite(path0, frame0)
             cv2.imwrite(path1, frame1)
-            # op.prediction(frame0, time0)
-            # op.prediction(frame1, time1)
 
             time0 += 1
-            time1 += 1
-         # print(bd.test())
-
-        # frame = cv2.resize(frame, (640,480), interpolation = cv2.INTER_LINEAR)
-        # cv2.imshow("Press q to end", frame)
 
         except mvsdk.CameraException as e:
             if e.error_code != mvsdk.CAMERA_STATUS_TIME_OUT:
@@ -150,13 +142,15 @@ def main_loop():
     mvsdk.CameraAlignFree(pFrameBuffer1)
 
 
-def main():
+def test():
     try:
+        path = "..\\\\data"
         pp = placement_prediction
-        main_loop()
-        print(pp.getAns('data/l','data/r'))
+        main_loop(path)
+        # print(pp.getAns(path + '\\\\l',path + '\\\\r'))
     finally:
         cv2.destroyAllWindows()
 
 
-main()
+if __name__ == '__main__':
+    test()

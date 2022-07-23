@@ -29,6 +29,7 @@ def init():
     reco = []
     actions = []
     recompensas = []
+
     t = 0
 
     def prediz(x0, y0, z0):
