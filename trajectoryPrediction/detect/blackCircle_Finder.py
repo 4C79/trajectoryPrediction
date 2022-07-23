@@ -1,11 +1,6 @@
 import cv2
 import numpy as np
 
-
-def test():
-    return 0
-
-
 def circle_detectFrame(frame):
     # 灰度化
     # gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

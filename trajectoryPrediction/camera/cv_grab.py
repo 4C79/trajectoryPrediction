@@ -5,6 +5,7 @@ from camera import mvsdk
 import platform
 from detect import orange_prediction
 from detect import blackCircle_Finder
+from detect import placement_prediction
 
 
 def main_loop():
@@ -121,8 +122,8 @@ def main_loop():
             frame1 = cv2.resize(frame1, (640,480), interpolation = cv2.INTER_LINEAR)
             cv2.imshow("Press q to end 1", frame1)
 
-            path0 = "E:\\2\\" + str(time0) + ".jpg"
-            path1 = "E:\\2\\" + str(time1) + ".jpg"
+            path0 = "data/l/" + str(time0) + ".jpg"
+            path1 = "data/r/" + str(time1) + ".jpg"
 
             cv2.imwrite(path0, frame0)
             cv2.imwrite(path1, frame1)
@@ -151,7 +152,9 @@ def main_loop():
 
 def main():
     try:
+        pp = placement_prediction
         main_loop()
+        print(pp.getAns('data/l','data/r'))
     finally:
         cv2.destroyAllWindows()
 
