@@ -149,7 +149,7 @@ def fromVideoPlay():
 def fromCameraPlay():
     try:
         path = "..\\\\data"
-        pp = placement_prediction
+        # pp = placement_prediction
         main_loop(path)
     finally:
         cv2.destroyAllWindows()
