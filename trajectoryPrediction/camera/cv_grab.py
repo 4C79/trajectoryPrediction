@@ -138,16 +138,17 @@ def main_loop(path):
     mvsdk.CameraAlignFree(pFrameBuffer0)
     mvsdk.CameraAlignFree(pFrameBuffer1)
 
+def fromVideoPlay():
+    path = "..\\\\data"
+    pp = placement_prediction
+    print(pp.getAns(path + '\\\\l', path + '\\\\r'))
 
-def test():
+
+# 需要保证帧率稳定且电脑处理速度快
+def fromCameraPlay():
     try:
         path = "..\\\\data"
         pp = placement_prediction
-        # main_loop(path)
-        print(pp.getAns(path + '\\\\l',path + '\\\\r'))
+        main_loop(path)
     finally:
         cv2.destroyAllWindows()
-
-
-if __name__ == '__main__':
-    test()
