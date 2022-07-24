@@ -7,18 +7,18 @@ from detect import LSM
 import os
 
 def saveProcess_l(frame,path,box):
-    cv2.circle(frame,box, 20, (255, 0, 0), 4)
+    cv2.circle(frame,box, 11, (255, 0, 0), 2)
     path = "..\\\\result\\\\l\\\\" + path
     cv2.imwrite(path,frame)
 
 def saveProcess_r(frame,path,box):
-    cv2.circle(frame,box, 20, (255, 0, 0), 4)
+    cv2.circle(frame,box, 11, (255, 0, 0), 2)
     path = "..\\\\result\\\\r\\\\" + path
     cv2.imwrite(path,frame)
 
 def getAns(path_dir_l, path_dir_r):
+
     bf = blackCircle_Finder
-    op = orange_prediction
     lm = LSM
 
     # 初始化结果坐标信息
@@ -31,6 +31,7 @@ def getAns(path_dir_l, path_dir_r):
     # #将文件列表按数字从小到大排序
     # path_l_list.sort(key=lambda x: int(x.split('.')[0]))
     # path_r_list.sort(key=lambda x: int(x.split('.')[0]))
+    # print(path_r_list)
 
     # 获取左右目文件数量，返回出错信息
     if (len(path_l_list) != len(path_r_list)):
@@ -46,11 +47,11 @@ def getAns(path_dir_l, path_dir_r):
         r = cv2.imread(path_r)
         circle_l = bf.circle_detectImage(l)
         circle_r = bf.circle_detectImage(r)
-        print(circle_l,circle_r)
+        # print(circle_l,circle_r)
         saveProcess_l(l,path_l_list[i],circle_l)
         saveProcess_r(r,path_r_list[i],circle_r)
         tmp = calculate(circle_l, circle_r)
-        print(tmp)
+        # print(tmp)
         # 坚持圆失败
         if (tmp == []):
             print("检测失败" + str(i))

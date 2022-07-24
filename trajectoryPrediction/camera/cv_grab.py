@@ -1,7 +1,7 @@
 # coding=utf-8
 import cv2
 import numpy as np
-from camera import mvsdk
+# from camera import mvsdk
 import platform
 from detect import orange_prediction
 from detect import blackCircle_Finder
@@ -141,6 +141,7 @@ def main_loop(path):
 def fromVideoPlay():
     path = "..\\\\data"
     pp = placement_prediction
+    print("落点的坐标为：")
     print(pp.getAns(path + '\\\\l', path + '\\\\r'))
 
 
@@ -152,3 +153,11 @@ def fromCameraPlay():
         main_loop(path)
     finally:
         cv2.destroyAllWindows()
+
+def kalmanFilter():
+    kf_l = kalmanFilter()
+    kf_r = kalmanFilter()
+
+
+if __name__ == '__main__':
+    fromVideoPlay()
