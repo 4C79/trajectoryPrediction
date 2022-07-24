@@ -59,12 +59,9 @@ def main_loop(path):
     mvsdk.CameraSetTriggerMode(hCamera0, 0)
     mvsdk.CameraSetTriggerMode(hCamera1, 0)
 
-    # 设置相机帧率
-    mvsdk.CameraSetFrameSpeed(hCamera0, 200)
-    mvsdk.CameraSetFrameSpeed(hCamera1, 200)
-
-    # t = mvsdk.CameraGetFrameSpeed(hCamera1)
-    # print("相机的当前帧率为："+str(t))
+    # # 设置相机帧率
+    # mvsdk.CameraSetFrameSpeed(hCamera0, 300)
+    # mvsdk.CameraSetFrameSpeed(hCamera1, 300)
 
     # 手动曝光，曝光时间20ms
     mvsdk.CameraSetAeState(hCamera0, 0)
@@ -87,7 +84,7 @@ def main_loop(path):
 
     time0 = 0  # 图片保存的文件名初始化
 
-    while (cv2.waitKey(2) & 0xFF) != ord('q'):  # 1ms触发一次，但是好像相机不够支持？
+    while (1):  # 1ms触发一次，但是好像相机不够支持？
         # 从相机取一帧图片
         try:
             pRawData0, FrameHead0 = mvsdk.CameraGetImageBuffer(hCamera0, 1)
@@ -116,8 +113,8 @@ def main_loop(path):
             frame1 = frame1.reshape((FrameHead1.iHeight, FrameHead1.iWidth,
                                      1 if FrameHead1.uiMediaType == mvsdk.CAMERA_MEDIA_TYPE_MONO8 else 3))
 
-            # frame0 = cv2.resize(frame0, (640, 480), interpolation=cv2.INTER_LINEAR)
-            # frame1 = cv2.resize(frame1, (640, 480), interpolation=cv2.INTER_LINEAR)
+            frame0 = cv2.resize(frame0, (640, 480), interpolation=cv2.INTER_LINEAR)
+            frame1 = cv2.resize(frame1, (640, 480), interpolation=cv2.INTER_LINEAR)
             # cv2.imshow("Press q to end", frame0)
             # cv2.imshow("Press q to end", frame1)
 
@@ -146,8 +143,8 @@ def test():
     try:
         path = "..\\\\data"
         pp = placement_prediction
-        main_loop(path)
-        # print(pp.getAns(path + '\\\\l',path + '\\\\r'))
+        # main_loop(path)
+        print(pp.getAns(path + '\\\\l',path + '\\\\r'))
     finally:
         cv2.destroyAllWindows()
 
