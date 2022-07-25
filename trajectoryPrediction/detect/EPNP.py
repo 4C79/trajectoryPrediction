@@ -319,3 +319,6 @@ def calculate(tar_1, tar_2):
     # print(pt)
 
     return pt
+
+if __name__ == '__main__':
+    print(calculate((434,380),(375,414)))
