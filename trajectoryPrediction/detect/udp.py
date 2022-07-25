@@ -1,6 +1,5 @@
 import socket
 
-
 class viewData():
     id = 1002  # 编号
     type = 1  # 模型类型例如导弹靶标等

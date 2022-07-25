@@ -20,6 +20,7 @@ python-dateutil   2.8.2
 python-dotenv     0.20.0
 qt5-applications  5.15.2.2.2
 qt5-tools         5.15.2.1.2
+scipy             1.7.3
 setuptools        63.1.0
 six               1.16.0
 typing_extensions 4.3.0
