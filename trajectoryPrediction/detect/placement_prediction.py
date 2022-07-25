@@ -4,6 +4,7 @@ from detect import blackCircle_Finder
 from detect.EPNP import calculate
 from detect import orange_prediction
 from detect import LSM
+from detect import udp
 import os
 
 def saveProcess_l(frame,path,box):
@@ -20,6 +21,7 @@ def getAns(path_dir_l, path_dir_r):
 
     bf = blackCircle_Finder
     lm = LSM
+    up = udp
 
     # 初始化结果坐标信息
     res = []
@@ -60,4 +62,5 @@ def getAns(path_dir_l, path_dir_r):
         # save result
         res.append(tmp)
 
+    up.transport(res)
     return lm.lsm(res)
