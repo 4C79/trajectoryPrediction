@@ -1,7 +1,7 @@
 # coding=utf-8
 import cv2
 import numpy as np
-from camera import mvsdk
+# from camera import mvsdk
 import platform
 from detect import orange_prediction
 from detect import blackCircle_Finder
@@ -143,7 +143,8 @@ def fromVideoPlay():
     path = "..\\\\data"
     pp = placement_prediction
     print("落点的坐标为：")
-    print(pp.getAns(path + '\\\\l', path + '\\\\r'))
+    res = pp.getAns(path + '\\\\l', path + '\\\\r')
+    print(res)
 
 
 # 需要保证帧率稳定且电脑处理速度快

@@ -147,8 +147,8 @@ class PNPSolver():
 
 
 class GetDistanceOf2linesIn3D():
-    def __init__(self):
-        print('')
+    # def __init__(self):
+        # print('')
 
     def dot(self, ax, ay, az, bx, by, bz):
         result = ax * bx + ay * by + az * bz

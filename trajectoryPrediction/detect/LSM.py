@@ -37,8 +37,8 @@ def function(para, input):
 
 def lsm(point):
     x, y, z = get_xyz(point)
-    for i in range(0,len(point)):
-        print(point[i])
+    # for i in range(0,len(point)):
+    #     print(point[i])
     f1, f2 = get_parameter(x, y, z, 2)
     ax = plt.subplot(111, projection='3d')
     ax.scatter(x, y, z, c='b')
