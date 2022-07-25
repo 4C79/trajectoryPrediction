@@ -1,3 +1,6 @@
+**pip list**
+
+```
 certifi           2022.6.15
 click             7.1.2
 cycler            0.11.0
@@ -26,3 +29,5 @@ six               1.16.0
 typing_extensions 4.3.0
 wheel             0.37.1
 wincertstore      0.2
+```
+
