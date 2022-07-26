@@ -25,6 +25,7 @@ def getAns(path_dir_l, path_dir_r):
 
     # 初始化结果坐标信息
     res = []
+    flag = 0
 
     # 得到文件列表
     path_l_list = os.listdir(path_dir_l)
@@ -49,16 +50,18 @@ def getAns(path_dir_l, path_dir_r):
         r = cv2.imread(path_r)
         circle_l = bf.circle_detectImage(l)
         circle_r = bf.circle_detectImage(r)
+        if circle_l == None or circle_r == None :
+            if flag == 0 :
+                continue
+            else :
+                break
         # print(circle_l,circle_r)
         saveProcess_l(l,path_l_list[i],circle_l)
         saveProcess_r(r,path_r_list[i],circle_r)
         tmp = calculate(circle_l, circle_r)
         # print(tmp)
-        # 坚持圆失败
-        if (tmp == []):
-            print("检测失败" + str(i))
-            continue
-
+        print(path_l,path_r)
+        flag = 1
         # save result
         res.append(tmp)
 

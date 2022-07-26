@@ -74,6 +74,6 @@ def circle_detectImage(image):
 
 
 if __name__ == '__main__':
-    img = cv2.imread("..\data\l\\128.jpg")
+    img = cv2.imread("..\data\\l\\111.jpg")
     tmp = circle_detectImage(img)
     print(tmp)

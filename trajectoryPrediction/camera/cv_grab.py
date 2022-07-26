@@ -139,7 +139,7 @@ def main_loop(path):
     mvsdk.CameraAlignFree(pFrameBuffer0)
     mvsdk.CameraAlignFree(pFrameBuffer1)
 
-def fromVideoPlay():
+def fromImgPlay():
     path = "..\\\\data"
     pp = placement_prediction
     print("落点的坐标为：")
@@ -184,4 +184,4 @@ def kalmanFilter(path):
 
 
 if __name__ == '__main__':
-    fromVideoPlay()
+    fromImgPlay()
