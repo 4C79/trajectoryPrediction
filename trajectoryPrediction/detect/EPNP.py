@@ -233,11 +233,11 @@ def calculate(tar_1, tar_2):
     # print("Begin")
     # print("***************************************")
     parser_l = argparse.ArgumentParser(description='test')
-    parser_l.add_argument('-file', type=str, default='../detect/calibration_l.csv')
+    parser_l.add_argument('-file', type=str, default='detect/calibration_l.csv')
     args_l = parser_l.parse_args()
 
     parser_r = argparse.ArgumentParser(description='test2')
-    parser_r.add_argument('-file', type=str, default='../detect/calibration_r.csv')
+    parser_r.add_argument('-file', type=str, default='detect/calibration_r.csv')
     args_r = parser_r.parse_args()
 
     p4psolver1 = PNPSolver()

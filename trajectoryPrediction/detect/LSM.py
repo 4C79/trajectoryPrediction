@@ -34,16 +34,40 @@ def function(para, input):
     output = para[2] + para[1] * input + para[0] * input * input
     return output
 
+def draw_predictionTrajectory(x,y,z,f1,f2):
+    maxI = int(max(z))
+
+    x_p = []
+    y_p = []
+    z_p = []
+    for i in range(0,maxI):
+        x_p.append(function(f1,i))
+        y_p.append(function(f2,i))
+        z_p.append(i)
+
+    fig = plt.figure()
+    ax2 = fig.gca(projection="3d",title="trajectory_prediction")
+    ax2.plot(x_p,y_p,z_p,color="red",linestyle="-")
+    ax2.set_xlabel("X Label")
+    ax2.set_ylabel("Y Label")
+    ax2.set_zlabel("Z Label")
+    plt.savefig('trajectory_prediction.jpg', bbox_inches='tight', dpi=450)
 
 def lsm(point):
     x, y, z = get_xyz(point)
     # for i in range(0,len(point)):
     #     print(point[i])
     f1, f2 = get_parameter(x, y, z, 2)
-    ax = plt.subplot(111, projection='3d')
+    fig = plt.figure()
+    ax = fig.gca(projection="3d",title="scatter_trajectory")
+    ax.set_xlabel("X Label")
+    ax.set_ylabel("Y Label")
+    ax.set_zlabel("Z Label")
     ax.scatter(x, y, z, c='b')
     # plt.legend()
-    plt.show()
+    # plt.show()
+    plt.savefig('trajectory.jpg', bbox_inches='tight', dpi=450)
+    draw_predictionTrajectory(x,y,z,f1,f2)
     return (function(f1,0), function(f2,0))
 
 

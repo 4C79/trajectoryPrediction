@@ -9,12 +9,12 @@ import os
 
 def saveProcess_l(frame,path,box):
     cv2.circle(frame,box, 11, (255, 0, 0), 2)
-    path = "..\\\\result\\\\l\\\\" + path
+    path = "result\\\\l\\\\" + path
     cv2.imwrite(path,frame)
 
 def saveProcess_r(frame,path,box):
     cv2.circle(frame,box, 11, (255, 0, 0), 2)
-    path = "..\\\\result\\\\r\\\\" + path
+    path = "result\\\\r\\\\" + path
     cv2.imwrite(path,frame)
 
 def getAns(path_dir_l, path_dir_r):
@@ -34,7 +34,6 @@ def getAns(path_dir_l, path_dir_r):
     # #将文件列表按数字从小到大排序
     # path_l_list.sort(key=lambda x: int(x.split('.')[0]))
     # path_r_list.sort(key=lambda x: int(x.split('.')[0]))
-    # print(path_r_list)
 
     # 获取左右目文件数量，返回出错信息
     if (len(path_l_list) != len(path_r_list)):
@@ -60,10 +59,10 @@ def getAns(path_dir_l, path_dir_r):
         saveProcess_r(r,path_r_list[i],circle_r)
         tmp = calculate(circle_l, circle_r)
         # print(tmp)
-        print(path_l,path_r)
+        # print(path_l,path_r)
         flag = 1
         # save result
         res.append(tmp)
 
-    up.transport(res)
+    # up.transport(res)
     return lm.lsm(res)
