@@ -1,0 +1,378 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(简体，中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Basic.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Basic.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "FileDescription", "Basic Microsoft 基础类应用程序"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "Basic"
+            VALUE "LegalCopyright", "版权所有 (C) 2012"
+            VALUE "OriginalFilename", "Basic.EXE"
+            VALUE "ProductName", "Basic 应用程序"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_LOG DIALOG 0, 0, 239, 180
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Camera SDK call trace"
+FONT 10, "宋体"
+BEGIN
+    LISTBOX         IDC_LIST_TRACE_LOG,0,23,239,157,LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Pause",IDC_BUTTON_PAUSE,0,7,50,14
+    PUSHBUTTON      "Clean",IDC_BUTTON_CLEAN,54,7,50,14
+END
+
+IDD_BASIC_DIALOG_CN DIALOGEX 0, 0, 282, 185
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Camera Demo [GPIO]"
+FONT 8, "宋体", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Input IO(Read Only)",IDC_STATIC,7,7,128,163
+    GROUPBOX        "Output IO(Write Only)",IDC_STATIC,141,7,125,164
+    LTEXT           "IO 1",IDC_STATIC_IN1,18,27,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 2",IDC_STATIC_IN2,18,41,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 3",IDC_STATIC_IN3,18,55,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 4",IDC_STATIC_IN4,18,69,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 5",IDC_STATIC_IN5,18,83,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 6",IDC_STATIC_IN6,18,97,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 7",IDC_STATIC__IN7,18,111,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 8",IDC_STATIC_IN8,18,125,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 9",IDC_STATIC_IN9,18,139,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 10",IDC_STATIC_IN10,18,153,21,8,NOT WS_VISIBLE
+    LTEXT           "IO 1",IDC_STATIC_OUT1,154,26,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 2",IDC_STATIC_OUT2,154,40,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 3",IDC_STATIC_OUT3,154,54,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 4",IDC_STATIC_OUT4,154,68,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 5",IDC_STATIC_OUT5,154,82,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 6",IDC_STATIC_OUT6,154,96,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 7",IDC_STATIC_OUT7,154,110,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 8",IDC_STATIC_OUT8,154,124,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 9",IDC_STATIC_OUT9,154,138,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 10",IDC_STATIC_OUT10,154,152,21,8,NOT WS_VISIBLE
+    CONTROL         "Low",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,26,28,10
+    CONTROL         "High",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,26,32,10
+    CONTROL         "Low",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,39,28,10
+    CONTROL         "High",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,39,32,10
+    CONTROL         "Low",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,53,28,10
+    CONTROL         "High",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,53,32,10
+    CONTROL         "Low",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,68,28,10
+    CONTROL         "High",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,68,32,10
+    CONTROL         "Low",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,83,28,10
+    CONTROL         "High",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,82,32,10
+    CONTROL         "Low",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,97,28,10
+    CONTROL         "High",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,96,32,10
+    CONTROL         "Low",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,110,28,10
+    CONTROL         "High",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,110,32,10
+    CONTROL         "Low",IDC_RADIO15,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,124,28,10
+    CONTROL         "High",IDC_RADIO16,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,124,32,10
+    CONTROL         "Low",IDC_RADIO17,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,138,28,10
+    CONTROL         "High",IDC_RADIO18,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,138,32,10
+    CONTROL         "Low",IDC_RADIO19,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,152,28,10
+    CONTROL         "High",IDC_RADIO20,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,152,32,10
+    CONTROL         "Low",IDC_RADIO21,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,25,28,10
+    CONTROL         "High",IDC_RADIO22,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,25,32,10
+    CONTROL         "Low",IDC_RADIO23,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,38,28,10
+    CONTROL         "High",IDC_RADIO24,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,38,32,10
+    CONTROL         "Low",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,52,28,10
+    CONTROL         "High",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,52,32,10
+    CONTROL         "Low",IDC_RADIO27,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,67,28,10
+    CONTROL         "High",IDC_RADIO28,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,67,32,10
+    CONTROL         "Low",IDC_RADIO29,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,81,28,10
+    CONTROL         "High",IDC_RADIO30,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,81,32,10
+    CONTROL         "Low",IDC_RADIO31,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,95,28,10
+    CONTROL         "High",IDC_RADIO32,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,95,32,10
+    CONTROL         "Low",IDC_RADIO33,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,108,28,10
+    CONTROL         "High",IDC_RADIO34,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,108,32,10
+    CONTROL         "Low",IDC_RADIO35,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,123,28,10
+    CONTROL         "High",IDC_RADIO36,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,123,32,10
+    CONTROL         "Low",IDC_RADIO37,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,137,28,10
+    CONTROL         "High",IDC_RADIO38,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,137,32,10
+    CONTROL         "Low",IDC_RADIO39,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,151,28,10
+    CONTROL         "High",IDC_RADIO40,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,151,32,10
+END
+
+IDD_BASIC_DIALOG DIALOGEX 0, 0, 282, 185
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Camera Demo [GPIO]"
+FONT 8, "宋体", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Input IO(Read Only)",IDC_STATIC,7,7,128,163
+    GROUPBOX        "Output IO(Write Only)",IDC_STATIC,141,7,125,164
+    LTEXT           "IO 1",IDC_STATIC_IN1,18,27,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 2",IDC_STATIC_IN2,18,41,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 3",IDC_STATIC_IN3,18,55,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 4",IDC_STATIC_IN4,18,69,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 5",IDC_STATIC_IN5,18,83,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 6",IDC_STATIC_IN6,18,97,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 7",IDC_STATIC__IN7,18,111,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 8",IDC_STATIC_IN8,18,125,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 9",IDC_STATIC_IN9,18,139,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 10",IDC_STATIC_IN10,18,153,21,8,NOT WS_VISIBLE
+    LTEXT           "IO 1",IDC_STATIC_OUT1,154,26,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 2",IDC_STATIC_OUT2,154,40,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 3",IDC_STATIC_OUT3,154,54,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 4",IDC_STATIC_OUT4,154,68,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 5",IDC_STATIC_OUT5,154,82,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 6",IDC_STATIC_OUT6,154,96,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 7",IDC_STATIC_OUT7,154,110,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 8",IDC_STATIC_OUT8,154,124,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 9",IDC_STATIC_OUT9,154,138,17,8,NOT WS_VISIBLE
+    LTEXT           "IO 10",IDC_STATIC_OUT10,154,152,21,8,NOT WS_VISIBLE
+    CONTROL         "Low",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,26,28,10
+    CONTROL         "High",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,26,32,10
+    CONTROL         "Low",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,39,28,10
+    CONTROL         "High",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,39,32,10
+    CONTROL         "Low",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,53,28,10
+    CONTROL         "High",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,53,32,10
+    CONTROL         "Low",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,68,28,10
+    CONTROL         "High",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,68,32,10
+    CONTROL         "Low",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,83,28,10
+    CONTROL         "High",IDC_RADIO10,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,82,32,10
+    CONTROL         "Low",IDC_RADIO11,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,97,28,10
+    CONTROL         "High",IDC_RADIO12,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,96,32,10
+    CONTROL         "Low",IDC_RADIO13,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,110,28,10
+    CONTROL         "High",IDC_RADIO14,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,110,32,10
+    CONTROL         "Low",IDC_RADIO15,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,124,28,10
+    CONTROL         "High",IDC_RADIO16,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,124,32,10
+    CONTROL         "Low",IDC_RADIO17,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,138,28,10
+    CONTROL         "High",IDC_RADIO18,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,138,32,10
+    CONTROL         "Low",IDC_RADIO19,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,52,152,28,10
+    CONTROL         "High",IDC_RADIO20,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,91,152,32,10
+    CONTROL         "Low",IDC_RADIO21,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,25,28,10
+    CONTROL         "High",IDC_RADIO22,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,25,32,10
+    CONTROL         "Low",IDC_RADIO23,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,38,28,10
+    CONTROL         "High",IDC_RADIO24,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,38,32,10
+    CONTROL         "Low",IDC_RADIO25,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,52,28,10
+    CONTROL         "High",IDC_RADIO26,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,52,32,10
+    CONTROL         "Low",IDC_RADIO27,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,67,28,10
+    CONTROL         "High",IDC_RADIO28,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,67,32,10
+    CONTROL         "Low",IDC_RADIO29,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,81,28,10
+    CONTROL         "High",IDC_RADIO30,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,81,32,10
+    CONTROL         "Low",IDC_RADIO31,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,95,28,10
+    CONTROL         "High",IDC_RADIO32,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,95,32,10
+    CONTROL         "Low",IDC_RADIO33,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,108,28,10
+    CONTROL         "High",IDC_RADIO34,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,108,32,10
+    CONTROL         "Low",IDC_RADIO35,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,123,28,10
+    CONTROL         "High",IDC_RADIO36,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,123,32,10
+    CONTROL         "Low",IDC_RADIO37,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,137,28,10
+    CONTROL         "High",IDC_RADIO38,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,137,32,10
+    CONTROL         "Low",IDC_RADIO39,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP,188,151,28,10
+    CONTROL         "High",IDC_RADIO40,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,228,151,32,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_LOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 232
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 173
+    END
+
+    IDD_BASIC_DIALOG_CN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 275
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_BASIC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 275
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "关于 Basic(&A)..."
+END
+
+#endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英语(美国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG 0, 0, 235, 168
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Basic demo"
+FONT 8, "Cambria"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,178,147,50,14,WS_GROUP
+    EDITTEXT        IDC_EDIT_ABOUT,7,7,166,154,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 英语(美国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Basic.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

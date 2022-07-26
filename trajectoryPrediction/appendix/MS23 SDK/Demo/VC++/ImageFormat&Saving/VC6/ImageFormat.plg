@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Basic - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo".\Debug/Basic.res" /i "\MindVision\DigitalLab\TestRoot\Demo\VC++\SaveImageFile" /d "_DEBUG" "L:\MindVision\DigitalLab\TestRoot\Demo\VC++\SaveImageFile\Basic.rc"" 
+Creating temporary file "D:\Users\ADMINI~1\AppData\Local\Temp\RSPEFF8.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\..\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fo".\Debug/" /Fd".\Debug/" /FD /GZ /c 
+"L:\MindVision\DigitalLab\TestRoot\Demo\VC++\SaveImageFile\Basic.cpp"
+"L:\MindVision\DigitalLab\TestRoot\Demo\VC++\SaveImageFile\BasicDlg.cpp"
+"L:\MindVision\DigitalLab\TestRoot\Demo\VC++\SaveImageFile\SdkCallTrace.cpp"
+]
+Creating command line "cl.exe @D:\Users\ADMINI~1\AppData\Local\Temp\RSPEFF8.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:".\Debug/Basic.pdb" /debug /machine:I386 /out:".\Debug/Basic.exe" /pdbtype:sept  ".\Debug\Basic.obj" ".\Debug\BasicDlg.obj" ".\Debug\SdkCallTrace.obj" ".\Debug\Basic.res" "..\MVCAMSDK.lib" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+Basic.cpp
+BasicDlg.cpp
+SdkCallTrace.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Basic.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

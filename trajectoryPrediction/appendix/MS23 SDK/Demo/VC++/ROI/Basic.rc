@@ -1,0 +1,383 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified, PRC) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Basic.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Basic.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "FileDescription", "Basic Microsoft 基础类应用程序"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "Basic"
+            VALUE "LegalCopyright", "版权所有 (C) 2012"
+            VALUE "OriginalFilename", "Basic.EXE"
+            VALUE "ProductName", "Basic 应用程序"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_LOG DIALOG 0, 0, 239, 180
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Camera SDK call trace"
+FONT 10, "宋体"
+BEGIN
+    LISTBOX         IDC_LIST_TRACE_LOG,0,23,239,157,LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Pause",IDC_BUTTON_PAUSE,0,7,50,14
+    PUSHBUTTON      "Clean",IDC_BUTTON_CLEAN,54,7,50,14
+END
+
+IDD_BASIC_DIALOG_CN DIALOGEX 0, 0, 491, 401
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Camera Demo [ROI]"
+FONT 8, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_STATIC_PREVIEW,"Static",SS_BLACKFRAME,7,77,329,304
+    PUSHBUTTON      "设置面板",IDC_BUTTON_CAMERA_SETTINGS,9,9,64,63
+    LTEXT           "Camera ",IDC_STATIC_INFORMATION,7,387,330,11
+    GROUPBOX        "图像传感器ROI设置",IDC_STATIC,142,7,198,64
+    GROUPBOX        "传输裁剪ROI设置[区域1]",IDC_STATIC,343,8,141,81
+    CONTROL         "使能",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,350,22,31,10
+    EDITTEXT        IDC_AREA1_X1,404,36,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA1_Y1,444,36,36,14,ES_AUTOHSCROLL
+    LTEXT           "左上角XY坐标：",IDC_STATIC,348,39,53,8
+    EDITTEXT        IDC_AREA1_X2,404,52,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA1_Y2,444,52,36,14,ES_AUTOHSCROLL
+    LTEXT           "右下角XY坐标：",IDC_STATIC,348,55,53,8
+    LTEXT           "X",IDC_STATIC,417,23,8,8
+    LTEXT           "Y",IDC_STATIC,457,23,8,8
+    GROUPBOX        "传输裁剪ROI设置[区域2]",IDC_STATIC,343,98,141,82
+    CONTROL         "使能",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,350,112,31,10
+    EDITTEXT        IDC_AREA2_X1,404,126,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA2_Y1,444,126,36,14,ES_AUTOHSCROLL
+    LTEXT           "左上角XY坐标：",IDC_STATIC,348,128,53,8
+    EDITTEXT        IDC_AREA2_X2,404,142,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA2_Y2,444,142,36,14,ES_AUTOHSCROLL
+    LTEXT           "X",IDC_STATIC,417,110,8,8
+    LTEXT           "Y",IDC_STATIC,457,110,8,8
+    LTEXT           "右下角XY坐标：",IDC_STATIC,348,144,53,8
+    GROUPBOX        "传输裁剪ROI设置[区域3]",IDC_STATIC,343,201,141,86
+    CONTROL         "使能",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,350,216,31,10
+    EDITTEXT        IDC_AREA3_X1,404,232,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA3_Y1,444,232,36,14,ES_AUTOHSCROLL
+    LTEXT           "左上角XY坐标：",IDC_STATIC,348,234,53,8
+    EDITTEXT        IDC_AREA3_X2,404,248,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA3_Y2,444,248,36,14,ES_AUTOHSCROLL
+    LTEXT           "X",IDC_STATIC,417,219,8,8
+    LTEXT           "Y",IDC_STATIC,457,219,8,8
+    LTEXT           "右下角XY坐标：",IDC_STATIC,348,250,53,8
+    GROUPBOX        "传输裁剪ROI设置[区域4]",IDC_STATIC,343,304,141,77
+    CONTROL         "使能",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,350,319,31,10
+    EDITTEXT        IDC_AREA4_X1,404,332,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA4_Y1,444,332,36,14,ES_AUTOHSCROLL
+    LTEXT           "左上角XY坐标：",IDC_STATIC,348,334,53,8
+    EDITTEXT        IDC_AREA4_X2,404,348,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA4_Y2,444,348,36,14,ES_AUTOHSCROLL
+    LTEXT           "X",IDC_STATIC,417,320,8,8
+    LTEXT           "Y",IDC_STATIC,457,320,8,8
+    LTEXT           "右下角XY坐标：",IDC_STATIC,348,350,53,8
+    PUSHBUTTON      "写入参数",IDC_BUTTON2,421,68,50,14
+    PUSHBUTTON      "写入参数",IDC_BUTTON3,422,161,50,14
+    PUSHBUTTON      "写入参数",IDC_BUTTON4,424,266,50,14
+    PUSHBUTTON      "写入参数",IDC_BUTTON5,425,364,50,14
+    PUSHBUTTON      "可视化配置ROI区域",IDC_BUTTON_SET_ROI,150,25,94,34
+    PUSHBUTTON      "查看帮助",IDC_BUTTON_HELP,76,9,63,63
+    PUSHBUTTON      "复制程序设置代码",IDC_BUTTON_COPY_CODE,253,25,80,35
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_LOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 232
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 173
+    END
+
+    IDD_BASIC_DIALOG_CN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 484
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 394
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "关于 Basic(&A)..."
+END
+
+#endif    // Chinese (Simplified, PRC) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_BASIC_DIALOG DIALOGEX 0, 0, 491, 401
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Camera Demo [ROI]"
+FONT 8, "??", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_STATIC_PREVIEW,"Static",SS_BLACKFRAME,7,77,329,304
+    PUSHBUTTON      "Settings",IDC_BUTTON_CAMERA_SETTINGS,9,9,64,63
+    LTEXT           "Camera ",IDC_STATIC_INFORMATION,7,387,330,11
+    GROUPBOX        "Sensor ROI setteings",IDC_STATIC,142,7,198,64
+    GROUPBOX        "Transfer cut ROI[1]",IDC_STATIC,343,8,141,81
+    CONTROL         "Enable",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,350,22,35,10
+    EDITTEXT        IDC_AREA1_X1,404,36,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA1_Y1,444,36,36,14,ES_AUTOHSCROLL
+    LTEXT           "Upper-Left :",IDC_STATIC,348,39,53,8
+    EDITTEXT        IDC_AREA1_X2,404,52,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA1_Y2,444,52,36,14,ES_AUTOHSCROLL
+    LTEXT           "Lower-Right:",IDC_STATIC,348,55,53,8
+    LTEXT           "X",IDC_STATIC,417,23,8,8
+    LTEXT           "Y",IDC_STATIC,457,23,8,8
+    GROUPBOX        "Transfer cut ROI[2]",IDC_STATIC,343,98,141,82
+    CONTROL         "Enable",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,350,112,35,10
+    EDITTEXT        IDC_AREA2_X1,404,126,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA2_Y1,444,126,36,14,ES_AUTOHSCROLL
+    LTEXT           "Upper-Left :",IDC_STATIC,348,128,53,8
+    EDITTEXT        IDC_AREA2_X2,404,142,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA2_Y2,444,142,36,14,ES_AUTOHSCROLL
+    LTEXT           "X",IDC_STATIC,417,110,8,8
+    LTEXT           "Y",IDC_STATIC,457,110,8,8
+    LTEXT           "Lower-Right:",IDC_STATIC,348,144,53,8
+    GROUPBOX        "Transfer cut ROI[3]",IDC_STATIC,343,201,141,86
+    CONTROL         "Enable",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,350,216,35,10
+    EDITTEXT        IDC_AREA3_X1,404,232,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA3_Y1,444,232,36,14,ES_AUTOHSCROLL
+    LTEXT           "Upper-Left :",IDC_STATIC,348,234,53,8
+    EDITTEXT        IDC_AREA3_X2,404,248,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA3_Y2,444,248,36,14,ES_AUTOHSCROLL
+    LTEXT           "X",IDC_STATIC,417,219,8,8
+    LTEXT           "Y",IDC_STATIC,457,219,8,8
+    LTEXT           "Lower-Right:",IDC_STATIC,348,250,53,8
+    GROUPBOX        "Transfer cut ROI[4]",IDC_STATIC,343,304,141,77
+    CONTROL         "Enable",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,350,319,35,10
+    EDITTEXT        IDC_AREA4_X1,404,332,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA4_Y1,444,332,36,14,ES_AUTOHSCROLL
+    LTEXT           "Upper-Left :",IDC_STATIC,348,334,53,8
+    EDITTEXT        IDC_AREA4_X2,404,348,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_AREA4_Y2,444,348,36,14,ES_AUTOHSCROLL
+    LTEXT           "X",IDC_STATIC,417,320,8,8
+    LTEXT           "Y",IDC_STATIC,457,320,8,8
+    LTEXT           "Lower-Right:",IDC_STATIC,348,350,53,8
+    PUSHBUTTON      "Apply",IDC_BUTTON2,421,68,50,14
+    PUSHBUTTON      "Apply",IDC_BUTTON3,422,161,50,14
+    PUSHBUTTON      "Apply",IDC_BUTTON4,424,266,50,14
+    PUSHBUTTON      "Apply",IDC_BUTTON5,425,364,50,14
+    PUSHBUTTON      "Modify ROI sensor  settings",IDC_BUTTON_SET_ROI,150,25,94,34
+    PUSHBUTTON      "help",IDC_BUTTON_HELP,76,9,63,63
+    PUSHBUTTON      "Copy setting code",IDC_BUTTON_COPY_CODE,253,25,80,35
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_BASIC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 484
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 394
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 168
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Code for roi settings"
+FONT 8, "Cambria", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,178,147,50,14,WS_GROUP
+    EDITTEXT        IDC_EDIT_ABOUT,7,7,221,129,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | WS_HSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Basic.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

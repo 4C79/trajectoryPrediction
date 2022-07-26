@@ -1,0 +1,1 @@
+该例程主要演示了如果通过Mindvision的SDK采集图像后，然后用eVision自带的EBW8Image控件显示8位黑白图像。

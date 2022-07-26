@@ -1,0 +1,278 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified, PRC) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Multi_Camera.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Multi_Camera.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 Multi_Camera"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Multi_Camera 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2013",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_MULTI_CAMERA_DIALOG DIALOGEX 0, 0, 698, 507
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "[VC例程]多相机同时工作"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "相机1(未连接)",IDC_STATIC_CM1,7,7,169,30
+    PUSHBUTTON      "参数设置",IDC_BUTTON_CM_SET_1,70,18,49,14
+    CONTROL         "冻结图像",IDC_CHECK_PAUSE_1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,21,48,10
+    PUSHBUTTON      "抓拍",IDC_BUTTON_SNAPSHOT_1,122,18,50,14
+    GROUPBOX        "相机2(未连接)",IDC_STATIC_CM2,179,7,169,30
+    PUSHBUTTON      "参数设置",IDC_BUTTON_CM_SET_2,242,18,49,14
+    CONTROL         "冻结图像",IDC_CHECK_PAUSE_2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,192,21,48,10
+    PUSHBUTTON      "抓拍",IDC_BUTTON_SNAPSHOT_2,294,18,50,14
+    GROUPBOX        "相机3(未连接)",IDC_STATIC_CM3,351,7,169,30
+    PUSHBUTTON      "参数设置",IDC_BUTTON_CM_SET_3,414,18,49,14
+    CONTROL         "冻结图像",IDC_CHECK_PAUSE_3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,364,21,48,10
+    PUSHBUTTON      "抓拍",IDC_BUTTON_SNAPSHOT_3,466,18,50,14
+    GROUPBOX        "相机4(未连接)",IDC_STATIC_CM4,522,7,169,30
+    PUSHBUTTON      "参数设置",IDC_BUTTON_CM_SET_4,580,18,49,14
+    CONTROL         "冻结图像",IDC_CHECK_PAUSE_4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,530,21,48,10
+    PUSHBUTTON      "抓拍",IDC_BUTTON_SNAPSHOT_4,632,18,50,14
+    CONTROL         "",IDC_CM_VIEW_1,"Static",SS_BLACKRECT,7,42,342,229
+    CONTROL         "",IDC_CM_VIEW_2,"Static",SS_BLACKRECT,349,42,342,229
+    CONTROL         "",IDC_CM_VIEW_3,"Static",SS_BLACKRECT,7,271,344,229
+    CONTROL         "",IDC_CM_VIEW_4,"Static",SS_BLACKRECT,349,271,342,229
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "FileDescription", "Multi_Camera Microsoft 基础类应用程序"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "Multi_Camera"
+            VALUE "LegalCopyright", "版权所有 (C) 2013"
+            VALUE "OriginalFilename", "Multi_Camera.EXE"
+            VALUE "ProductName", "Multi_Camera 应用程序"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_MULTI_CAMERA_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 691
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 500
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "关于 Multi_Camera(&A)..."
+END
+
+#endif    // Chinese (Simplified, PRC) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MULTI_CAMERA_DIALOG_EN DIALOGEX 0, 0, 698, 507
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "[VC??]???????"
+FONT 9, "??", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Camera1(Disconnectted)",IDC_STATIC_CM1,7,7,169,30
+    PUSHBUTTON      "Settings",IDC_BUTTON_CM_SET_1,70,18,49,14
+    CONTROL         "Pause",IDC_CHECK_PAUSE_1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,21,33,10
+    PUSHBUTTON      "Capture",IDC_BUTTON_SNAPSHOT_1,122,18,50,14
+    GROUPBOX        "Camera2(Disconnectted)",IDC_STATIC_CM2,179,7,169,30
+    PUSHBUTTON      "Settings",IDC_BUTTON_CM_SET_2,242,18,49,14
+    CONTROL         "Pause",IDC_CHECK_PAUSE_2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,192,21,33,10
+    PUSHBUTTON      "Capture",IDC_BUTTON_SNAPSHOT_2,294,18,50,14
+    GROUPBOX        "Camera3(Disconnectted)",IDC_STATIC_CM3,351,7,169,30
+    PUSHBUTTON      "Settings",IDC_BUTTON_CM_SET_3,414,18,49,14
+    CONTROL         "Pause",IDC_CHECK_PAUSE_3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,364,21,33,10
+    PUSHBUTTON      "Capture",IDC_BUTTON_SNAPSHOT_3,466,18,50,14
+    GROUPBOX        "Camera4(Disconnectted)",IDC_STATIC_CM4,522,7,169,30
+    PUSHBUTTON      "Settings",IDC_BUTTON_CM_SET_4,580,18,49,14
+    CONTROL         "Pause",IDC_CHECK_PAUSE_4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,530,21,33,10
+    PUSHBUTTON      "Capture",IDC_BUTTON_SNAPSHOT_4,632,18,50,14
+    CONTROL         "",IDC_CM_VIEW_1,"Static",SS_BLACKRECT,7,42,342,229
+    CONTROL         "",IDC_CM_VIEW_2,"Static",SS_BLACKRECT,349,42,342,229
+    CONTROL         "",IDC_CM_VIEW_3,"Static",SS_BLACKRECT,7,271,344,229
+    CONTROL         "",IDC_CM_VIEW_4,"Static",SS_BLACKRECT,349,271,342,229
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_MULTI_CAMERA_DIALOG_EN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 691
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 500
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Multi_Camera.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

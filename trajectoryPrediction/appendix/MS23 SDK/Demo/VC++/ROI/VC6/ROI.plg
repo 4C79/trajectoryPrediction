@@ -1,0 +1,29 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Basic - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "D:\Users\ADMINI~1\AppData\Local\Temp\RSPE6F0.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /I "..\..\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fo".\Release/" /Fd".\Release/" /FD /c 
+"L:\MindVision\DigitalLab\TestRoot\Demo\VC++\Basic\BasicDlg.cpp"
+]
+Creating command line "cl.exe @D:\Users\ADMINI~1\AppData\Local\Temp\RSPE6F0.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:".\Release/Basic.pdb" /machine:I386 /out:".\Release/Basic.exe"  ".\Release\Basic.obj" ".\Release\BasicDlg.obj" ".\Release\SdkCallTrace.obj" ".\Release\Basic.res" "..\MVCAMSDK.lib" "
+<h3>Output Window</h3>
+Compiling...
+BasicDlg.cpp
+L:\MindVision\DigitalLab\TestRoot\Demo\VC++\Basic\BasicDlg.cpp(425) : error C2065: '_aligned_malloc' : undeclared identifier
+L:\MindVision\DigitalLab\TestRoot\Demo\VC++\Basic\BasicDlg.cpp(457) : error C2065: '_aligned_free' : undeclared identifier
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+Basic.exe - 2 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

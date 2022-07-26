@@ -1,0 +1,2121 @@
+/*
+	File : app.odl
+*/
+
+/*
+
+	NI CONFIDENTIAL
+	oleserv.odl - File that defines LV's activex server interface
+
+	© Copyright 1996-2000 by National Instruments Corp.
+	All Rights Reserved.
+
+*/
+
+[
+	uuid(4DB029D7-DBB1-405B-9B2F-D04524F24368),
+	helpstring("MVLabviewDemo Type Library"),
+	lcid(0x0409),
+	helpfile("AXPROP.CHM"),
+	helpcontext(0x2710),
+	version(5.5)
+]
+
+
+library MVLabviewDemo
+{
+	importlib("stdole32.tlb");
+
+//	Enumerations used by objects in the library
+
+
+
+typedef
+
+[uuid(BACE87F7-7EAC-4DA8-B5EB-04C98DB5EEFE),
+
+ helpstring("Print Format")]
+
+enum {
+
+	[helpstring("Custom printing")] eCustom = 0,
+
+	[helpstring("Standard printing")] eStandard,
+
+	[helpstring("Print using panel")] eUsingPanel,
+
+	[helpstring("Print using subVI")] eUsingSubVI,
+
+	[helpstring("Complete printing")] eComplete
+
+} PrintFormatEnum;
+
+
+
+typedef
+
+[uuid(C07A6074-6439-4900-9041-83AA21D7134F),
+
+ helpstring("HTML Image Format")]
+
+enum {
+
+	[helpstring("PNG")] ePNG = 0,
+
+	[helpstring("JPEG")] eJPEG,
+
+	[helpstring("GIF")] eGIF
+
+} HTMLImageFormatEnum;
+
+
+
+typedef
+
+[uuid(91609FFE-6590-4215-8138-0B01D0787631),
+
+ helpstring("VI Execution State")]
+
+enum {
+
+	[helpstring("Bad")] eBad = 0,
+
+	[helpstring("Idle")] eIdle,
+
+	[helpstring("Run Top Level")] eRunTopLevel,
+
+	[helpstring("Running")] eRunning
+
+} ExecStateEnum;
+
+
+
+typedef
+
+[uuid(69A683DC-233F-4220-9C18-45148536E42B),
+
+ helpstring("Image Data To Formatted Byte Array")]
+
+enum {
+
+	[helpstring("PNG")] eImgDataFmtPNG = 0,
+
+	[helpstring("JPEG")] eImgDataFmtJPEG,
+
+	[helpstring("EMF")] eImgDataFmtEMF
+
+} ImgDataToFmtEnum;
+
+
+
+typedef
+
+[uuid(484C2DB1-4884-402E-8BA3-38CC2C7277B5),
+
+ helpstring("VI Priority")]
+
+enum {
+
+	[helpstring("Invalid Priority")] ePriInvalid = 0,
+
+	[helpstring("Background")] ePriBackground,
+
+	[helpstring("Normal")] ePriNormal,
+
+	[helpstring("Above Normal")] ePriAboveNormal,
+
+	[helpstring("High")] ePriHigh,
+
+	[helpstring("Critical")] ePriCritical,
+
+	[helpstring("Subroutine")] ePriSubroutine
+
+} VIPriorityEnum;
+
+
+
+typedef
+
+[uuid(A800A210-156A-478F-9AF6-1188E845CE79),
+
+ helpstring("VI Preferred Execution System")]
+
+enum {
+
+	[helpstring("Invalid Execution System")] eESysInvalid = 0,
+
+	[helpstring("User Interface")] eESysUserInterface,
+
+	[helpstring("Standard")] eESysNormal,
+
+	[helpstring("Instrument I/O")] eESysInstrIO,
+
+	[helpstring("Data Acquisition")] eESysDAQ,
+
+	[helpstring("Other 1")] eESysOther1,
+
+	[helpstring("Other 2")] eESysOther2,
+
+	[helpstring("Same As Caller")] eESysSameAsCaller
+
+} VIExecSysEnum;
+
+
+
+typedef
+
+[uuid(F0C7DA95-B013-4385-8C9B-D728F93A7EFA),
+
+ helpstring("Application Kind")]
+
+enum {
+
+	[helpstring("Invalid Application Kind")] eInvalidAppKind = 0,
+
+	[helpstring("Development System")] eDevSysKind,
+
+	[helpstring("Run Time System")] eRunTimeSysKind,
+
+	[helpstring("Student Edition")] eStudEdKind,
+
+	[helpstring("Embedded System")] eEmbeddedKind,
+
+	[helpstring("Evaluation")] eEvaluationKind
+
+} AppKindEnum;
+
+
+
+typedef
+
+[uuid(DF819DFB-56A4-4C9D-891B-6E22CA2AD741),
+
+ helpstring("Application Target OS")]
+
+enum {
+
+	[helpstring("Invalid Target OS")] eInvalidTargOS = 0,
+
+	[helpstring("Mac OS")] eMacOS,
+
+	[helpstring("Windows 3.1")] eWin31OS,
+
+	[helpstring("Windows 95/NT")] eWin95NTOS,
+
+	[helpstring("Solaris 1")] eSolaris1OS,
+
+	[helpstring("Solaris 2")] eSolaris2OS,
+
+	[helpstring("HP-UX")] eHPUXOS,
+
+	[helpstring("PowerMAX")] ePowerMaxOS,
+
+	[helpstring("Linux")] eLinuxOS,
+
+	[helpstring("Irix")] eIrixOS,
+
+	[helpstring("Rhapsody")] eRhapsodyOS,
+
+	[helpstring("BeOS")] eBeOS,
+
+	[helpstring("AIX")] eAIXOS,
+
+	[helpstring("OSF1")] eOSF1OS,
+
+	[helpstring("VxWorks")] eVxWorksOS,
+
+	[helpstring("Pharlap")] ePharlapOS,
+
+	[helpstring("Carbon")] eCarbonOS,
+
+	[helpstring("RTX")] eRTXOS,
+
+	[helpstring("Windows x64")] eWin64OS,
+
+	[helpstring("Linux x64")] eLinux64OS
+
+} AppTargOSEnum;
+
+
+
+typedef
+
+[uuid(D0A8FC07-3057-475E-9968-B8AEFEFE79C1),
+
+ helpstring("Application Target CPU")]
+
+enum {
+
+	// Must be kept in sync with gAppTargCPUTD in TDTable.cpp,
+
+	// and CPUInformation::Architecture in mgcore:CPUInformation.h/cpp
+
+	[helpstring("Invalid Target CPU")] eInvalidTargCPU = 0,
+
+	[helpstring("Motorola 68K")] eMotorola68kCPU,
+
+	[helpstring("PowerPC")] ePowerPCCPU,
+
+	[helpstring("Intel x86")] eIntelx86CPU,
+
+	[helpstring("SPARC")] eSPARCCPU,
+
+	[helpstring("PA-RISC")] ePARISCCPU,
+
+	[helpstring("MIPS")] eMIPSCPU,
+
+	[helpstring("Alpha")] eAlphaCPU,
+
+	[helpstring("ARM")] eArmCPU,
+
+	[helpstring("AMD/Intel x64")] eX64CPU
+
+} AppTargCPUEnum;
+
+
+
+typedef
+
+[uuid(3B5F2F26-AF91-410C-81C4-41800F434760),
+
+ helpstring("VI Type")]
+
+enum {
+
+	[helpstring("Invalid VI Type")] eInvalidVIType = 0,
+
+	[helpstring("Standard VI")] eStandardVIType,
+
+	[helpstring("Control VI")] eControlVIType,
+
+	[helpstring("Global VI")] eGlobalVIType,
+
+	[helpstring("Polymorphic VI")] ePolymorphicVIType,
+
+	[helpstring("Configuration VI")] eConfigurationVIType,
+
+	[helpstring("SubSystem")] eSubSystemVIType,
+
+	[helpstring("Facade VI")] eFacadeVIType,
+
+	[helpstring("Method VI")] eMethodVIType,
+
+	[helpstring("Statechart Diagram VI")] eStatechartVIType
+
+} VITypeEnum;
+
+
+
+typedef
+
+[uuid(FE8D2FB5-699C-4EF8-A952-45F43348DEF3),
+
+ helpstring("VI Lock State")]
+
+enum {
+
+	[helpstring("Invalid VI Lock State")] eInvalidLockState = 0,
+
+	[helpstring("Unlocked")] eUnlockedState,
+
+	[helpstring("Locked No Password")] eLockedNoPwdState,
+
+	[helpstring("Password protected")] ePwdProtectedState,
+
+} VILockStateEnum;
+
+
+
+typedef
+
+[uuid(562389A9-CC56-42DF-8379-1BE29AE97CE8),
+
+ helpstring("Page Orientation")]
+
+enum {
+
+	[helpstring("Portrait")] ePortrait = 0,
+
+	[helpstring("Langscape")] eLandscape,
+
+	[helpstring("Rotated Portrait")] eRotatedPortrait,
+
+	[helpstring("Rotated Landscape")] eRotatedLandscape,
+
+} PageOrientationEnum;
+
+
+
+typedef
+
+[uuid(8F5052FF-52C0-4C34-A5C2-75BD2793BF6F),
+
+ helpstring("Print Methods")]
+
+enum {
+
+	[helpstring("Standard")] eStandardMethod = 0,
+
+	[helpstring("Postscript")] ePostscriptMethod,
+
+	[helpstring("Bitmap")] eBitmapMethod,
+
+} PrintMethodsEnum;
+
+
+
+typedef
+
+[uuid(E4CC9DCC-00BF-4C04-A16C-85EB40566CB3),
+
+ helpstring("Front Panel Behavior")]
+
+enum {
+
+	[helpstring("Invalid")] eInvalidFPBehavior = 0,
+
+	[helpstring("Default")] eDefaultFPBehavior,
+
+	[helpstring("Floating")] eFloating,
+
+	[helpstring("Floating/Auto-Hide")] eFloatingAutoHide,
+
+	[helpstring("Modal")] eModal,
+
+} FPBehaviorEnum;
+
+
+
+typedef
+
+[uuid(86E48CCC-918D-4DC5-85AC-C54CA34C3EB5),
+
+ helpstring("Front Panel State")]
+
+enum {
+
+	[helpstring("Invalid")] eInvalidFPState= 0,
+
+	[helpstring("Visible")] eVisible,
+
+	[helpstring("Closed")] eClosed,
+
+	[helpstring("Hidden")] eHidden,
+
+	[helpstring("Minimized")] eMinimized,
+
+	[helpstring("Maximized")] eMaximized,
+
+} FPStateEnum;
+
+
+
+typedef
+
+[uuid(9C5C4CF4-B76C-4C45-8197-4AB29058CC46),
+
+ helpstring("Front Panel Run-time Position")]
+
+enum {
+
+	[helpstring("Unchanged")] eRTPUnchanged= 0,
+
+	[helpstring("Centered")] eRTPCentered,
+
+	[helpstring("Maximized")] eRTPMaximized,
+
+	[helpstring("Minimized")] eRTPMinimized,
+
+	[helpstring("Custom")] eRTPCustom,
+
+} FPRunTimePosEnum;
+
+
+
+typedef
+
+[uuid(11FFEFA2-C027-45F8-AAAC-F341AED47FE8),
+
+ helpstring("Library Item Scope")]
+
+enum {
+
+	[helpstring("Invalid Scope")] eLibScopeInvalid= 0,
+
+	[helpstring("Public")] eLibScopePublic,
+
+	[helpstring("Private")] eLibScopePrivate,
+
+	[helpstring("Protected")] eProtected,
+
+	[helpstring("Community")] eCommunity,
+
+} LibraryItemScopeEnum;
+
+
+
+
+
+dispinterface _Ó¦ÓÃ³ÌÐò;
+
+dispinterface VirtualInstrument;
+
+dispinterface ÏîÄ¿;
+
+dispinterface ÏîÄ¿Ïî;
+
+dispinterface ¿â;
+
+dispinterface ÖÕ¶ËÏî;
+
+
+
+
+
+	[
+
+	 //Interface Ó¦ÓÃ³ÌÐò
+
+	 odl,
+
+	 uuid($Ó¦ÓÃ³ÌÐòInterfaceGUID),
+
+	 helpstring("Ó¦ÓÃ³ÌÐò Interface"),
+
+	 helpcontext(0x2711)
+
+	]
+
+
+
+	interface _IÓ¦ÓÃ³ÌÐò : IDispatch
+
+	{	// properties
+
+
+
+	[id(0x0), propget, helpstring("Ó¦ÓÃ³ÌÐò:Ãû³Æ"), helpcontext(0x2904)]
+
+	BSTR AppName(void);
+
+	[id(0x1), propget, helpstring("Ó¦ÓÃ³ÌÐò:ÓÃ»§Ãû"), helpcontext(0x2905)]
+
+	BSTR UserName(void);
+
+	[id(0x2), propget, helpstring("Ó¦ÓÃ³ÌÐò:°æ±¾ºÅ"), helpcontext(0x2906)]
+
+	BSTR Version(void);
+
+	[id(0x3), propget, helpstring("Ó¦ÓÃ³ÌÐò:Àà±ð"), helpcontext(0x2907)]
+
+	AppKindEnum AppKind(void);
+
+	[id(0x4), propget, helpstring("Ó¦ÓÃ³ÌÐò:ÖÕ¶Ë:²Ù×÷ÏµÍ³"), helpcontext(0x2908)]
+
+	AppTargOSEnum AppTargetOS(void);
+
+	[id(0x5), propget, helpstring("Ó¦ÓÃ³ÌÐò:ÖÕ¶Ë:CPU"), helpcontext(0x2909)]
+
+	AppTargCPUEnum AppTargetCPU(void);
+
+	[id(0x6), propget, helpstring("²Ù×÷ÏµÍ³:Ãû³Æ"), helpcontext(0x290A)]
+
+	BSTR OSName(void);
+
+	[id(0x7), propget, helpstring("²Ù×÷ÏµÍ³:°æ±¾ºÅ"), helpcontext(0x290B)]
+
+	BSTR OSVersion(void);
+
+	[id(0x8), propget, helpstring("Ó¦ÓÃ³ÌÐò:ÄÚ´æÖÐµ¼³öµÄVI"), helpcontext(0x290C)]
+
+	VARIANT ExportedVIs(void);
+
+	[id(0x19), propget, helpstring("Ó¦ÓÃ³ÌÐò:Ä¿Â¼Â·¾¶"), helpcontext(0x291D)]
+
+	BSTR ApplicationDirectory(void);
+
+	[id(0x1C), propget, helpstring("Ó¦ÓÃ³ÌÐò:ËùÓÐÄÚ´æÖÐµÄVI"), helpcontext(0x291E)]
+
+	VARIANT AllVIsInMemory(void);
+
+	[id(0x23), propget, helpstring("×Ô¶¯¹Ø±Õ"), helpcontext(0x291F)]
+
+	boolean AutomaticClose(void);
+
+	[id(0x23), propput, helpstring("×Ô¶¯¹Ø±Õ"), helpcontext(0x291F)]
+
+	void AutomaticClose([in] boolean val);
+
+	[id(0x36), propget, helpstring("Application:Parent Window For Dialogs"), helpcontext(0x2920)]
+
+	long _ParentWindowForDialogs(void);
+
+	[id(0x36), propput, helpstring("Application:Parent Window For Dialogs"), helpcontext(0x2920)]
+
+	void _ParentWindowForDialogs([in] long val);
+
+	[id(0x3F), propget, helpstring("Ó¦ÓÃ³ÌÐò:ÏÔÊ¾Ç°Ãæ°åÌáÊ¾¿ò"), helpcontext(0x2921)]
+
+	boolean ShowFPTipStrips(void);
+
+	[id(0x3F), propput, helpstring("Ó¦ÓÃ³ÌÐò:ÏÔÊ¾Ç°Ãæ°åÌáÊ¾¿ò"), helpcontext(0x2921)]
+
+	void ShowFPTipStrips([in] boolean val);
+
+	[id(0x48), propget, helpstring("´òÓ¡:²ÊÉ«/»Ò¶È£¿"), helpcontext(0x2922)]
+
+	boolean PrintingColorDepth(void);
+
+	[id(0x48), propput, helpstring("´òÓ¡:²ÊÉ«/»Ò¶È£¿"), helpcontext(0x2922)]
+
+	void PrintingColorDepth([in] boolean val);
+
+	[id(0x49), propget, helpstring("´òÓ¡:Ä¬ÈÏ´òÓ¡»ú"), helpcontext(0x2923)]
+
+	BSTR PrintDefaultPrinter(void);
+
+	[id(0x49), propput, helpstring("´òÓ¡:Ä¬ÈÏ´òÓ¡»ú"), helpcontext(0x2923)]
+
+	void PrintDefaultPrinter([in] BSTR val);
+
+	[id(0x4A), propget, helpstring("´òÓ¡:·½·¨"), helpcontext(0x2924)]
+
+	PrintMethodsEnum PrintMethod(void);
+
+	[id(0x4A), propput, helpstring("´òÓ¡:·½·¨"), helpcontext(0x2924)]
+
+	void PrintMethod([in] PrintMethodsEnum val);
+
+	[id(0x4B), propget, helpstring("´òÓ¡:¿ÉÓÃ´òÓ¡»ú"), helpcontext(0x2925)]
+
+	VARIANT PrintersAvailable(void);
+
+	[id(0x4F), propget, helpstring("Ó¦ÓÃ³ÌÐò:ÃüÁîÐÐ²ÎÊý"), helpcontext(0x2926)]
+
+	VARIANT CmdArgs(void);
+
+	[id(0x50), propget, helpstring("Process ID"), helpcontext(0x2927)]
+
+	long _ProcessID(void);
+
+	[id(0x57), propget, helpstring("Ó¦ÓÃ³ÌÐò:Ä¬ÈÏ:Êý¾ÝÄ¿Â¼"), helpcontext(0x2928)]
+
+	BSTR DefaultDataLocation(void);
+
+	[id(0x5A), propget, helpstring("Ó¦ÓÃ³ÌÐò:ÓÃ»§½çÃæ¿ÉÓÃ"), helpcontext(0x2929)]
+
+	boolean RTHostConnected(void);
+
+	[id(0x5D), propget, helpstring("·þÎñÆ÷:¶Ë¿Ú"), helpcontext(0x292B)]
+
+	long VIServerPort(void);
+
+	[id(0x5D), propput, helpstring("·þÎñÆ÷:¶Ë¿Ú"), helpcontext(0x292B)]
+
+	void VIServerPort([in] long val);
+
+	[id(0x63), propget, helpstring("Ó¦ÓÃ³ÌÐò:ÓïÑÔ"), helpcontext(0x292C)]
+
+	BSTR Language(void);
+
+	[id(0x64), propget, helpstring("Application:Window For Panel Origin"), helpcontext(0x292D)]
+
+	long _WindowForPanelOrigin(void);
+
+	[id(0x64), propput, helpstring("Application:Window For Panel Origin"), helpcontext(0x292D)]
+
+	void _WindowForPanelOrigin([in] long val);
+
+	[id(0x65), propget, helpstring("Module Handle"), helpcontext(0x292E)]
+
+	long _ModuleHandle(void);
+
+	[id(0x69), propget, helpstring("ÏîÄ¿:ÏîÄ¿[]"), helpcontext(0x292F)]
+
+	VARIANT AllProjects(void);
+
+	[id(0xAB), propget, helpstring("Application:Disable Getting Started Window"), helpcontext(0x2931)]
+
+	boolean _DisableGettingStartedWindow(void);
+
+	[id(0xAB), propput, helpstring("Application:Disable Getting Started Window"), helpcontext(0x2931)]
+
+	void _DisableGettingStartedWindow([in] boolean val);
+
+	[id(0xBF), propget, helpstring("²Ù×÷ÏµÍ³:Éú³ÉºÅ"), helpcontext(0x2933)]
+
+	BSTR OSBuildNumber(void);
+
+	[id(0xC6), propget, helpstring("²Ù×÷ÏµÍ³:ÏêÏ¸Ãû³Æ"), helpcontext(0x2934)]
+
+	BSTR OSDetailedName(void);
+
+	[id(0xD7), propget, helpstring("Ó¦ÓÃ³ÌÐò:°æ±¾µÄÄê·Ý"), helpcontext(0x2935)]
+
+	BSTR VersionYear(void);
+
+	[id(0xDB), propget, helpstring("Application:TestStandOptions"), helpcontext(0x2936)]
+
+	long _TestStandOptions(void);
+
+	[id(0xDB), propput, helpstring("Application:TestStandOptions"), helpcontext(0x2936)]
+
+	void _TestStandOptions([in] long val);
+
+	[id(0xDE), propget, helpstring("Ó¦ÓÃ³ÌÐò:±£´æ°æ±¾"), helpcontext(0x2937)]
+
+	BSTR SaveVersion(void);
+
+
+
+	// methods
+
+
+
+	[id(0x7D4), helpstring("Get Reference to a VI specified by path."), helpcontext(0x293A)]
+
+	VirtualInstrument* GetVIReference([in] BSTR viPath,
+
+		[in, optional] VARIANT password,
+
+		[in, optional] VARIANT resvForCall,
+
+		[in, optional] VARIANT options);
+
+	[id(0x7DD), helpstring("Quits the Application"), helpcontext(0x293C)]
+
+	void Quit();
+
+	[id(0x7DE), helpstring("ÔÚWindowsºÍMac OS XÖÐ£¬Ê¹Ó¦ÓÃ³ÌÐò´°¿ÚÖÃÓÚ×îÇ°¡£"), helpcontext(0x293D)]
+
+	void BringToFront();
+
+	[id(0x7EC), helpstring("Compares 2 type descriptors. The return value is a bit mask. Look for 'sUnknown' in StateBits.h to figure out what the bits correspond to. Options is also a bit mask. Look for 'kAllNameChk' in datatype.cpp to specify the bits. This function is being "), helpcontext(0x293E)]
+
+	long _CompareTypes([in] VARIANT typeDesc1,
+
+		[in] VARIANT typeDesc2,
+
+		[in, optional] VARIANT options);
+
+	[id(0x7F9), helpstring("·µ»ØVIµÄLabVIEWÎÄ¼þ¸ñÊ½°æ±¾¡£VIµÄÎÄ¼þ¸ñÊ½°æ±¾¿ÉÄÜ²»Í¬ÓÚ´ËÇ°±£´æVIµÄLabVIEW°æ±¾¡£ÀýÈç£¬ÈçÊ¹ÓÃLabVIEW 9.0.1±£´æVI£¬ÔòVIµÄÎÄ¼þ¸ñÊ½Îª9.0¡£Í¨¹ý»ñÈ¡VI:±à¼­Æ÷°æ±¾·½·¨£¬¿É»ñÈ¡´ËÇ°±£´æVIµÄLabVIEW°æ±¾¡£LabVIEW»ñÈ¡°æ±¾ÐÅÏ¢Ê±²¢²»´ò¿ªVI¡£ÈçÖ¸¶¨Â·¾¶¶ÔÓ¦µÄÎÄ¼þ²»ÊÇV"), helpcontext(0x2940)]
+
+	BSTR GetVIVersion([in] BSTR viPath,
+
+		[out] long* versNum);
+
+	[id(0x7FB), helpstring("´ò¿ªDataSocketä¯ÀÀÆ÷¶Ô»°¿ò£¬½¨Á¢¶ÔDataSocketÏîµÄÁ¬½Ó¡£"), helpcontext(0x2942)]
+
+	void BrowseDataSocket([in, optional] VARIANT prompt,
+
+		[out, optional] VARIANT* selectedURL);
+
+	[id(0x7FC), helpstring("If the input path is a LabVIEW symbolic path, such as those that the Document Path property returns, this method converts it into an absolute path. For example, if you wire <helpdir>:\glang.chm, this method returns C:\Program Files\National Instrumen"), helpcontext(0x2943)]
+
+	void ResolveSymbolicPath([in] BSTR symbolicPath,
+
+		[out] BSTR* actualPath);
+
+	[id(0x809), helpstring("It creates an instance of a C++ object used for interfaces-to-data, in particularly, an IDispatch* to an IAnalogWaveForm, IDigitalWaveForm, or IWaveForms object of one of the available waveform types"), helpcontext(0x2945)]
+
+	VARIANT _CreateLVClsInst([in] long classID);
+
+	[id(0x813), helpstring("¼ÓÔØ´ÅÅÌÖÐµÄLabVIEWÏîÄ¿¡£ÈçÏîÄ¿ÒÑÔÚÄÚ´æÖÐ£¬Ôò¸Ã·½·¨·µ»ØÒÑÓÐÏîÄ¿µÄÒýÓÃ¡£¸ÃÒýÓÃ¿ÉÓÃÓÚÏîÄ¿ÀàµÄ¸÷ÖÖÊôÐÔ¡£Ò²¿ÉÑ¡ÔñÎÄ¼þ>>´ò¿ªÏîÄ¿ä¯ÀÀ²¢´ò¿ªÏîÄ¿¡£"), helpcontext(0x2947)]
+
+	ÏîÄ¿* OpenProject([in] BSTR path);
+
+	[id(0x825), helpstring("´ò¿ªÂ·¾¶Ö¸¶¨µÄLabVIEWÏîÄ¿¿â¡£"), helpcontext(0x2949)]
+
+	¿â* OpenLibrary([in] BSTR path);
+
+	[id(0x83B), helpstring("Gets the CRC (checksum) for the connector pane type map (ConPane) of a VI without loading  the VI. This will remove timestamps before it calculates the CRC so that controls that timestamps  will not affect the CRC value. This property will return the"), helpcontext(0x294B)]
+
+	void _GetVICPTMCRC([in] BSTR viPath,
+
+		[out] long* cptm_crc);
+
+	[id(0x85F), helpstring("Gets the CRC (checksum) for the connector pane type map (ConPane) of a VI without loading the VI. If you specify a path to a file that is not a VI, LabVIEW returns error 1059."), helpcontext(0x294D)]
+
+	void _GetVICPTMCRCNew([in] BSTR viPath,
+
+		[out] long* cptm_crc);
+
+	[id(0x86E), helpstring("·µ»Ø¿âµÄLabVIEWÎÄ¼þ¸ñÊ½°æ±¾¡£¿âµÄÎÄ¼þ¸ñÊ½°æ±¾¿ÉÄÜ²»Í¬ÓÚ´ËÇ°±£´æ¿âµÄLabVIEW°æ±¾¡£ÀýÈç£¬ÈçÊ¹ÓÃLabVIEW 9.0.1±£´æ¿â£¬Ôò¿âµÄÎÄ¼þ¸ñÊ½Îª9.0¡£"), helpcontext(0x294E)]
+
+	BSTR LibraryGetFileLVVersion([in] BSTR libPath,
+
+		[out, optional] VARIANT* versNum);
+
+	[id(0x938), helpstring("»ñÈ¡VI²ã´Î½á¹¹µÄËõ·ÅÍ¼Ïñ¡£"), helpcontext(0x294F)]
+
+	void GetHierImgScaled([in] long imgdepth,
+
+		[out] VARIANT* imgdata,
+
+		[in] long maxwidth,
+
+		[in] long maxheight,
+
+		[in] VARIANT VIToHighlight);
+
+	[id(0x947), helpstring("·µ»ØÉÏ´Î±£´æVIµÄLabVIEW°æ±¾¡£´ËÇ°±£´æVIµÄLabVIEW°æ±¾¿ÉÄÜ²»Í¬ÓÚVIµÄ°æ±¾¡£ÀýÈç£¬ÈçÊ¹ÓÃLabVIEW 9.0.1±£´æVI£¬ÔòVIµÄÎÄ¼þ¸ñÊ½Îª9.0¡£Í¨¹ý»ñÈ¡VI:°æ±¾·½·¨£¬¿É»ñÈ¡VIµÄ°æ±¾¡£LabVIEW»ñÈ¡°æ±¾ÐÅÏ¢Ê±²¢²»´ò¿ªVI¡£ÈçÖ¸¶¨Â·¾¶¶ÔÓ¦µÄÎÄ¼þ²»ÊÇVI£¬LabVIEW¿É·µ»Ø´íÎó6559¡£"), helpcontext(0x2951)]
+
+	BSTR GetVIEditorVersion([in] BSTR viPath,
+
+		[out] long* versNum);
+
+	[id(0x948), helpstring("·µ»ØVIµÄºÏ¹æÃû³Æ£¬²»¼ÓÔØVI¡£"), helpcontext(0x2952)]
+
+	void _GetVIQualifiedName([in] BSTR VIPath,
+
+		[out] BSTR* VIQualifiedName);
+
+	[id(0x94A), helpstring("Takes a path and determines if whatever is at that path acts and looks like an Express Vi when it's dropped on a Block Diagram.  Currently only works for XNodes."), helpcontext(0x2953)]
+
+	boolean _IsFileExpressVI([in] BSTR Path);
+
+	[id(0x954), helpstring("·µ»ØÏîÄ¿µÄLabVIEWÎÄ¼þ¸ñÊ½°æ±¾¡£¸Ã°æ±¾¿ÉÄÜ²»Í¬ÓÚÉÏ´Î±£´æÏîÄ¿µÄLabVIEW°æ±¾¡£"), helpcontext(0x2954)]
+
+	BSTR ProjectGetFileLVVersion([in] BSTR projectPath,
+
+		[out, optional] VARIANT* versNum);
+
+	[id(0x956), helpstring("Release LV Class Cookies. When using LV Classes outside out LabVIEW from the ActiveX and C Interface, callers must hold references to LV Classes that must be released when no longer needed."), helpcontext(0x2955)]
+
+	void _ReleaseLVClassCookies([in] VARIANT ArrayOfCookies);
+
+	[id(0x95C), helpstring("Returns an array of qualified names and paths of exported items in a packed library. Both array ouputs are required parameters."), helpcontext(0x2956)]
+
+	void _PackedLibraryGetExportedFileList([in] BSTR PackedLibraryPath,
+
+		[out] VARIANT* QualifiedNames,
+
+		[out] VARIANT* Paths);
+
+	[id(0x95F), helpstring("Starts and stops packed library caching."), helpcontext(0x2957)]
+
+	void _PackedLibraryEnableCaching([in] boolean Enable);
+
+	[id(0x975), helpstring("·µ»ØÃû³ÆÊý×éºÍÀàËùÓÐ·½·¨µÄÂ·¾¶Êý×é¡£ÀàµÄ·½·¨ÊÇ³ÉÔ±VI£¬¿ÉÒÔ×÷Îª×ÓVIµ÷ÓÃ¡£»»¶øÑÔÖ®£¬È«¾Ö±äÁ¿VI¡¢¿Ø¼þVI¡¢¶àÌ¬VI²»°üÀ¨ÔÚÊä³öÊý×éÖÐ¡£"), helpcontext(0x295A)]
+
+	void AllMethodsOfLVClass([out] VARIANT* MethodNames,
+
+		[out] VARIANT* MethodPaths,
+
+		[in] BSTR Path,
+
+		[in, optional] VARIANT Scope,
+
+		[in, optional] VARIANT OnlyVIsWithClassIn);
+
+	[id(0x976), helpstring("·µ»ØÔÚÌØ¶¨µÄÀàÖÐÊµÏÖÖ¸¶¨·½·¨µÄVI¡£ÈçÀàÃ»ÓÐÊµÏÖÌØ¶¨µÄ·½·¨£¬¸Ä·½·¨½«·µ»Ø×æÏÈVIµÄÊµÏÖ¡£"), helpcontext(0x295B)]
+
+	void LVClassImplementingVIPathAndScope([out] BSTR* PathToVI,
+
+		[in] BSTR ClassPath,
+
+		[in] BSTR MethodName,
+
+		[out] LibraryItemScopeEnum* Scope);
+
+	[id(0x977), helpstring("Gets the CRC (checksum) ignoring dynamic dispatch terminals for the connector pane type map (ConPane) of a VI without loading the VI. If you specify a path to a file that is not a VI, LabVIEW returns error 1059."), helpcontext(0x295C)]
+
+	void _GetVICPTMCRCIgnoreDynamicDispatch([in] BSTR viPath,
+
+		[out] long* cptm_crc_ignore_dd);
+
+	}
+
+
+
+	[
+
+	 uuid($Ó¦ÓÃ³ÌÐòDispatchGUID),
+
+	 helpstring("Ó¦ÓÃ³ÌÐò DispInterface"),
+
+	 helpcontext(0x2711)
+
+	]
+
+
+
+	dispinterface _Ó¦ÓÃ³ÌÐò
+
+	{
+
+	 interface _IÓ¦ÓÃ³ÌÐò;
+
+	}
+
+
+
+	[
+
+	 //Ó¦ÓÃ³ÌÐò coclass
+
+	 uuid($Ó¦ÓÃ³ÌÐòCoClassGUID), 
+
+	 helpstring("Ó¦ÓÃ³ÌÐò CoClass"),
+
+	 helpcontext(0x2711)
+
+	]
+
+	coclass Ó¦ÓÃ³ÌÐò
+
+	{
+
+	 dispinterface _Ó¦ÓÃ³ÌÐò;
+
+	 interface _IÓ¦ÓÃ³ÌÐò;
+
+	}
+
+
+
+	[
+
+	 //Interface VI
+
+	 odl,
+
+	 uuid(8B3CA8D1-4BC9-4435-9401-D11EE10781B2),
+
+	 helpstring("VI Interface"),
+
+	 helpcontext(0x2712)
+
+	]
+
+
+
+	interface _IVI : IDispatch
+
+	{	// properties
+
+
+
+	[id(0x1F4), propget, helpstring("VIÃû³Æ"), helpcontext(0x295E)]
+
+	BSTR Name(void);
+
+	[id(0x1F5), propget, helpstring("VIÂ·¾¶"), helpcontext(0x295F)]
+
+	BSTR Path(void);
+
+	[id(0x1F6), propget, helpstring("VIËµÃ÷"), helpcontext(0x2960)]
+
+	BSTR Description(void);
+
+	[id(0x1F9), propget, helpstring("Ç°Ãæ°å´°¿Ú:±êÌâÀ¸¿É¼û"), helpcontext(0x2962)]
+
+	boolean FPTitleBarVisible(void);
+
+	[id(0x1F9), propput, helpstring("Ç°Ãæ°å´°¿Ú:±êÌâÀ¸¿É¼û"), helpcontext(0x2962)]
+
+	void FPTitleBarVisible([in] boolean val);
+
+	[id(0x1FA), propget, helpstring("Ç°Ãæ°å´°¿Ú:¿É¹Ø±Õ"), helpcontext(0x2963)]
+
+	boolean FPWinClosable(void);
+
+	[id(0x1FA), propput, helpstring("Ç°Ãæ°å´°¿Ú:¿É¹Ø±Õ"), helpcontext(0x2963)]
+
+	void FPWinClosable([in] boolean val);
+
+	[id(0x1FB), propget, helpstring("Ç°Ãæ°å´°¿Ú:¿Éµ÷Õû´óÐ¡£¨¾É£©"), helpcontext(0x2964)]
+
+	boolean FPResizable(void);
+
+	[id(0x1FB), propput, helpstring("Ç°Ãæ°å´°¿Ú:¿Éµ÷Õû´óÐ¡£¨¾É£©"), helpcontext(0x2964)]
+
+	void FPResizable([in] boolean val);
+
+	[id(0x1FC), propget, helpstring("Ç°Ãæ°å´°¿Ú:ÔÊÐíÔËÐÐÊ±µ¯³ö"), helpcontext(0x2965)]
+
+	boolean FPAllowRTPopup(void);
+
+	[id(0x1FC), propput, helpstring("Ç°Ãæ°å´°¿Ú:ÔÊÐíÔËÐÐÊ±µ¯³ö"), helpcontext(0x2965)]
+
+	void FPAllowRTPopup([in] boolean val);
+
+	[id(0x1FD), propget, helpstring("Ç°Ãæ°å´°¿Ú:¸ßÁÁÏÔÊ¾·µ»Ø°´Å¥"), helpcontext(0x2966)]
+
+	boolean FPHiliteReturnButton(void);
+
+	[id(0x1FD), propput, helpstring("Ç°Ãæ°å´°¿Ú:¸ßÁÁÏÔÊ¾·µ»Ø°´Å¥"), helpcontext(0x2966)]
+
+	void FPHiliteReturnButton([in] boolean val);
+
+	[id(0x1FE), propget, helpstring("Ç°Ãæ°å´°¿Ú:µ÷ÕûÖÁÆÁÄ»´óÐ¡(¹ýÊ±)"), helpcontext(0x2967)]
+
+	boolean FPSizeToScreen(void);
+
+	[id(0x1FE), propput, helpstring("Ç°Ãæ°å´°¿Ú:µ÷ÕûÖÁÆÁÄ»´óÐ¡(¹ýÊ±)"), helpcontext(0x2967)]
+
+	void FPSizeToScreen([in] boolean val);
+
+	[id(0x1FF), propget, helpstring("Ç°Ãæ°å´°¿Ú:×Ô¶¯¾ÓÖÐ(¹ýÊ±)"), helpcontext(0x2968)]
+
+	boolean FPAutoCenter(void);
+
+	[id(0x1FF), propput, helpstring("Ç°Ãæ°å´°¿Ú:×Ô¶¯¾ÓÖÐ(¹ýÊ±)"), helpcontext(0x2968)]
+
+	void FPAutoCenter([in] boolean val);
+
+	[id(0x200), propget, helpstring("Ç°Ãæ°å´°¿Ú:ÏÔÊ¾¹ö¶¯Ìõ"), helpcontext(0x2969)]
+
+	boolean FPShowScrollBars(void);
+
+	[id(0x200), propput, helpstring("Ç°Ãæ°å´°¿Ú:ÏÔÊ¾¹ö¶¯Ìõ"), helpcontext(0x2969)]
+
+	void FPShowScrollBars([in] boolean val);
+
+	[id(0x201), propget, helpstring("Ç°Ãæ°å´°¿Ú:ÏÔÊ¾²Ëµ¥À¸"), helpcontext(0x296A)]
+
+	boolean FPShowMenuBar(void);
+
+	[id(0x201), propput, helpstring("Ç°Ãæ°å´°¿Ú:ÏÔÊ¾²Ëµ¥À¸"), helpcontext(0x296A)]
+
+	void FPShowMenuBar([in] boolean val);
+
+	[id(0x202), propget, helpstring("¹¤¾ßÀ¸:¿É¼û"), helpcontext(0x296B)]
+
+	boolean TBVisible(void);
+
+	[id(0x202), propput, helpstring("¹¤¾ßÀ¸:¿É¼û"), helpcontext(0x296B)]
+
+	void TBVisible([in] boolean val);
+
+	[id(0x203), propget, helpstring("¹¤¾ßÀ¸:ÏÔÊ¾ÔËÐÐ°´Å¥"), helpcontext(0x296C)]
+
+	boolean TBShowRunButton(void);
+
+	[id(0x203), propput, helpstring("¹¤¾ßÀ¸:ÏÔÊ¾ÔËÐÐ°´Å¥"), helpcontext(0x296C)]
+
+	void TBShowRunButton([in] boolean val);
+
+	[id(0x204), propget, helpstring("¹¤¾ßÀ¸:ÏÔÊ¾×ÔÓÉÔËÐÐ°´Å¥"), helpcontext(0x296D)]
+
+	boolean TBShowFreeRunButton(void);
+
+	[id(0x204), propput, helpstring("¹¤¾ßÀ¸:ÏÔÊ¾×ÔÓÉÔËÐÐ°´Å¥"), helpcontext(0x296D)]
+
+	void TBShowFreeRunButton([in] boolean val);
+
+	[id(0x205), propget, helpstring("¹¤¾ßÀ¸:ÏÔÊ¾ÖÐÖ¹°´Å¥"), helpcontext(0x296E)]
+
+	boolean TBShowAbortButton(void);
+
+	[id(0x205), propput, helpstring("¹¤¾ßÀ¸:ÏÔÊ¾ÖÐÖ¹°´Å¥"), helpcontext(0x296E)]
+
+	void TBShowAbortButton([in] boolean val);
+
+	[id(0x206), propget, helpstring("Ö´ÐÐ:ÔÊÐíµ÷ÊÔ"), helpcontext(0x296F)]
+
+	boolean AllowDebugging(void);
+
+	[id(0x209), propget, helpstring("Ö´ÐÐ:¼ÓÔØÊ±ÏÔÊ¾Ç°Ãæ°å"), helpcontext(0x2970)]
+
+	boolean ShowFPOnLoad(void);
+
+	[id(0x20A), propget, helpstring("Ö´ÐÐ:µ÷ÓÃÊ±ÏÔÊ¾Ç°Ãæ°å"), helpcontext(0x2971)]
+
+	boolean ShowFPOnCall(void);
+
+	[id(0x20A), propput, helpstring("Ö´ÐÐ:µ÷ÓÃÊ±ÏÔÊ¾Ç°Ãæ°å"), helpcontext(0x2971)]
+
+	void ShowFPOnCall([in] boolean val);
+
+	[id(0x20B), propget, helpstring("Ö´ÐÐ:µ÷ÓÃºó¹Ø±Õ"), helpcontext(0x2972)]
+
+	boolean CloseFPAfterCall(void);
+
+	[id(0x20B), propput, helpstring("Ö´ÐÐ:µ÷ÓÃºó¹Ø±Õ"), helpcontext(0x2972)]
+
+	void CloseFPAfterCall([in] boolean val);
+
+	[id(0x20C), propget, helpstring("Ö´ÐÐ:´ò¿ªÊ±ÔËÐÐ"), helpcontext(0x2973)]
+
+	boolean RunOnOpen(void);
+
+	[id(0x20D), propget, helpstring("Ö´ÐÐ:¿ÉÖØÈë"), helpcontext(0x2974)]
+
+	boolean IsReentrant(void);
+
+	[id(0x20E), propget, helpstring("Ö´ÐÐ:ÓÅÏÈ¼¶"), helpcontext(0x2975)]
+
+	VIPriorityEnum ExecPriority(void);
+
+	[id(0x214), propget, helpstring("°ïÖú:ÎÄµµ±êÊ¶·û"), helpcontext(0x297B)]
+
+	BSTR HelpDocumentTag(void);
+
+	[id(0x214), propput, helpstring("°ïÖú:ÎÄµµ±êÊ¶·û"), helpcontext(0x297B)]
+
+	void HelpDocumentTag([in] BSTR val);
+
+	[id(0x215), propget, helpstring("°ïÖú:ÎÄµµÂ·¾¶"), helpcontext(0x297C)]
+
+	BSTR HelpDocumentPath(void);
+
+	[id(0x215), propput, helpstring("°ïÖú:ÎÄµµÂ·¾¶"), helpcontext(0x297C)]
+
+	void HelpDocumentPath([in] BSTR val);
+
+	[id(0x216), propget, helpstring("Ç°Ãæ°å´°¿Ú:´ò¿ª"), helpcontext(0x297D)]
+
+	boolean FPWinOpen(void);
+
+	[id(0x216), propput, helpstring("Ç°Ãæ°å´°¿Ú:´ò¿ª"), helpcontext(0x297D)]
+
+	void FPWinOpen([in] boolean val);
+
+	[id(0x217), propget, helpstring("Ç°Ãæ°å´°¿Ú:ÔÚ×îÇ°"), helpcontext(0x297E)]
+
+	boolean FPWinIsFrontMost(void);
+
+	[id(0x217), propput, helpstring("Ç°Ãæ°å´°¿Ú:ÔÚ×îÇ°"), helpcontext(0x297E)]
+
+	void FPWinIsFrontMost([in] boolean val);
+
+	[id(0x218), propget, helpstring("Ç°Ãæ°å´°¿Ú:´°¿Ú±ß½ç"), helpcontext(0x297F)]
+
+	VARIANT FPWinBounds(void);
+
+	[id(0x218), propput, helpstring("Ç°Ãæ°å´°¿Ú:´°¿Ú±ß½ç"), helpcontext(0x297F)]
+
+	void FPWinBounds([in] VARIANT val);
+
+	[id(0x219), propget, helpstring("ÐÞ¸Ä:VIÐÞ¸Ä±ÈÌØ¼¯¾É"), helpcontext(0x2980)]
+
+	long VIModificationBitSet(void);
+
+	[id(0x21A), propget, helpstring("ÐÞ¸Ä:Ç°Ãæ°åÐÞ¸Ä±ÈÌØ¼¯"), helpcontext(0x2981)]
+
+	long FPModificationBitSet(void);
+
+	[id(0x21C), propget, helpstring("Í³¼Æ:´úÂë×Ö½ÚÁ¿"), helpcontext(0x2983)]
+
+	long CodeSize(void);
+
+	[id(0x21D), propget, helpstring("Í³¼Æ:Êý¾Ý×Ü×Ö½ÚÁ¿"), helpcontext(0x2984)]
+
+	long DataSize(void);
+
+	[id(0x21E), propget, helpstring("Í³¼Æ:Ç°Ãæ°å×Ö½ÚÁ¿"), helpcontext(0x2985)]
+
+	long FPSize(void);
+
+	[id(0x21F), propget, helpstring("Í³¼Æ:³ÌÐò¿òÍ¼×Ö½ÚÁ¿"), helpcontext(0x2986)]
+
+	long BDSize(void);
+
+	[id(0x220), propget, helpstring("µ÷ÓÃ·½Ãû³Æ"), helpcontext(0x2987)]
+
+	VARIANT Callers(void);
+
+	[id(0x221), propget, helpstring("±»µ÷·½Ãû³Æ"), helpcontext(0x2988)]
+
+	VARIANT Callees(void);
+
+	[id(0x225), propget, helpstring("×Ô¶¯¼ÇÂ¼:¼ÇÂ¼ÎÄ¼þÂ·¾¶"), helpcontext(0x2989)]
+
+	BSTR LogFilePath(void);
+
+	[id(0x225), propput, helpstring("×Ô¶¯¼ÇÂ¼:¼ÇÂ¼ÎÄ¼þÂ·¾¶"), helpcontext(0x2989)]
+
+	void LogFilePath([in] BSTR val);
+
+	[id(0x226), propget, helpstring("×Ô¶¯¼ÇÂ¼:½áÊøºó¼ÇÂ¼"), helpcontext(0x298A)]
+
+	boolean LogAtFinish(void);
+
+	[id(0x226), propput, helpstring("×Ô¶¯¼ÇÂ¼:½áÊøºó¼ÇÂ¼"), helpcontext(0x298A)]
+
+	void LogAtFinish([in] boolean val);
+
+	[id(0x227), propget, helpstring("×Ô¶¯¼ÇÂ¼:½áÊøºó´òÓ¡"), helpcontext(0x298B)]
+
+	boolean PrintLogFileAtFinish(void);
+
+	[id(0x227), propput, helpstring("×Ô¶¯¼ÇÂ¼:½áÊøºó´òÓ¡"), helpcontext(0x298B)]
+
+	void PrintLogFileAtFinish([in] boolean val);
+
+	[id(0x228), propget, helpstring("Ç°Ãæ°å´°¿Ú:Ô­µã"), helpcontext(0x298C)]
+
+	VARIANT FPWinOrigin(void);
+
+	[id(0x228), propput, helpstring("Ç°Ãæ°å´°¿Ú:Ô­µã"), helpcontext(0x298C)]
+
+	void FPWinOrigin([in] VARIANT val);
+
+	[id(0x229), propget, helpstring("Ç°Ãæ°å´°¿Ú:±êÌâ"), helpcontext(0x298D)]
+
+	BSTR FPWinTitle(void);
+
+	[id(0x229), propput, helpstring("Ç°Ãæ°å´°¿Ú:±êÌâ"), helpcontext(0x298D)]
+
+	void FPWinTitle([in] BSTR val);
+
+	[id(0x22B), propget, helpstring("Ö´ÐÐ:µ÷ÓÃÊ±¹ÒÆð"), helpcontext(0x298E)]
+
+	boolean SuspendOnCall(void);
+
+	[id(0x22C), propget, helpstring("Ç°Ãæ°å´°¿Ú:Ç°Ãæ°å±ß½ç"), helpcontext(0x298F)]
+
+	VARIANT FPWinPanelBounds(void);
+
+	[id(0x22C), propput, helpstring("Ç°Ãæ°å´°¿Ú:Ç°Ãæ°å±ß½ç"), helpcontext(0x298F)]
+
+	void FPWinPanelBounds([in] VARIANT val);
+
+	[id(0x22D), propget, helpstring("Ö´ÐÐ:×´Ì¬"), helpcontext(0x2990)]
+
+	ExecStateEnum ExecState(void);
+
+	[id(0x22E), propget, helpstring("ÒÔ±à¼­Ä£Ê½´ò¿ª"), helpcontext(0x2991)]
+
+	boolean EditMode(void);
+
+	[id(0x22E), propput, helpstring("ÒÔ±à¼­Ä£Ê½´ò¿ª"), helpcontext(0x2991)]
+
+	void EditMode([in] boolean val);
+
+	[id(0x22F), propget, helpstring("Ö´ÐÐ:ÓÅÏÈÖ´ÐÐÏµÍ³"), helpcontext(0x2992)]
+
+	VIExecSysEnum PreferredExecSystem(void);
+
+	[id(0x231), propget, helpstring("Ç°Ãæ°å´°¿Ú:×Ô¶¨Òå±êÌâ"), helpcontext(0x2993)]
+
+	boolean FPWinCustomTitle(void);
+
+	[id(0x231), propput, helpstring("Ç°Ãæ°å´°¿Ú:×Ô¶¨Òå±êÌâ"), helpcontext(0x2993)]
+
+	void FPWinCustomTitle([in] boolean val);
+
+	[id(0x232), propget, helpstring("VIÀàÐÍ"), helpcontext(0x2994)]
+
+	VITypeEnum VIType(void);
+
+	[id(0x23F), propget, helpstring("Ç°Ãæ°å´°¿Ú:±£³Ö´°¿Ú±ÈÀý"), helpcontext(0x2997)]
+
+	boolean FPKeepWinProps(void);
+
+	[id(0x23F), propput, helpstring("Ç°Ãæ°å´°¿Ú:±£³Ö´°¿Ú±ÈÀý"), helpcontext(0x2997)]
+
+	void FPKeepWinProps([in] boolean val);
+
+	[id(0x244), propget, helpstring("ÔËÐÐÊ±²Ëµ¥Â·¾¶"), helpcontext(0x2998)]
+
+	BSTR RunTimeMenuPath(void);
+
+	[id(0x244), propput, helpstring("ÔËÐÐÊ±²Ëµ¥Â·¾¶"), helpcontext(0x2998)]
+
+	void RunTimeMenuPath([in] BSTR val);
+
+	[id(0x247), propget, helpstring("Ç°Ãæ°å´°¿Ú:¿É×îÐ¡»¯"), helpcontext(0x2999)]
+
+	boolean FPMinimizeable(void);
+
+	[id(0x247), propput, helpstring("Ç°Ãæ°å´°¿Ú:¿É×îÐ¡»¯"), helpcontext(0x2999)]
+
+	void FPMinimizeable([in] boolean val);
+
+	[id(0x248), propget, helpstring("Ç°Ãæ°å´°¿Ú:¿Éµ÷Õû´óÐ¡"), helpcontext(0x299A)]
+
+	boolean FPResizeable(void);
+
+	[id(0x248), propput, helpstring("Ç°Ãæ°å´°¿Ú:¿Éµ÷Õû´óÐ¡"), helpcontext(0x299A)]
+
+	void FPResizeable([in] boolean val);
+
+	[id(0x24A), propget, helpstring("´òÓ¡:Ò³Ãæ·½Ïò"), helpcontext(0x299C)]
+
+	PageOrientationEnum PrintingOrientation(void);
+
+	[id(0x24A), propput, helpstring("´òÓ¡:Ò³Ãæ·½Ïò"), helpcontext(0x299C)]
+
+	void PrintingOrientation([in] PageOrientationEnum val);
+
+	[id(0x24B), propget, helpstring("´òÓ¡:Ò³Ã¼£¿"), helpcontext(0x299D)]
+
+	boolean PrintingHeaders(void);
+
+	[id(0x24B), propput, helpstring("´òÓ¡:Ò³Ã¼£¿"), helpcontext(0x299D)]
+
+	void PrintingHeaders([in] boolean val);
+
+	[id(0x24C), propget, helpstring("´òÓ¡:Ç°Ãæ°åËõ·Å£¿"), helpcontext(0x299E)]
+
+	boolean PrintingFPScaling(void);
+
+	[id(0x24C), propput, helpstring("´òÓ¡:Ç°Ãæ°åËõ·Å£¿"), helpcontext(0x299E)]
+
+	void PrintingFPScaling([in] boolean val);
+
+	[id(0x24D), propget, helpstring("´òÓ¡:Ò³±ß¾à"), helpcontext(0x299F)]
+
+	VARIANT PrintMargins(void);
+
+	[id(0x24D), propput, helpstring("´òÓ¡:Ò³±ß¾à"), helpcontext(0x299F)]
+
+	void PrintMargins([in] VARIANT val);
+
+	[id(0x24E), propget, helpstring("´òÓ¡:Ò³Ã¼ÄÚÈÝ:VIÃû³Æ£¿"), helpcontext(0x29A0)]
+
+	boolean PrintHeaderVIName(void);
+
+	[id(0x24E), propput, helpstring("´òÓ¡:Ò³Ã¼ÄÚÈÝ:VIÃû³Æ£¿"), helpcontext(0x29A0)]
+
+	void PrintHeaderVIName([in] boolean val);
+
+	[id(0x250), propget, helpstring("´òÓ¡:Ò³Ã¼ÄÚÈÝ:´òÓ¡ÈÕÆÚ£¿"), helpcontext(0x29A1)]
+
+	boolean PrintHeaderDatePrint(void);
+
+	[id(0x250), propput, helpstring("´òÓ¡:Ò³Ã¼ÄÚÈÝ:´òÓ¡ÈÕÆÚ£¿"), helpcontext(0x29A1)]
+
+	void PrintHeaderDatePrint([in] boolean val);
+
+	[id(0x251), propget, helpstring("´òÓ¡:Ò³Ã¼ÄÚÈÝ:ÐÞ¸ÄÈÕÆÚ£¿"), helpcontext(0x29A2)]
+
+	boolean PrintHeaderModifyDate(void);
+
+	[id(0x251), propput, helpstring("´òÓ¡:Ò³Ã¼ÄÚÈÝ:ÐÞ¸ÄÈÕÆÚ£¿"), helpcontext(0x29A2)]
+
+	void PrintHeaderModifyDate([in] boolean val);
+
+	[id(0x252), propget, helpstring("´òÓ¡:Ò³Ã¼ÄÚÈÝ:Ò³Âë£¿"), helpcontext(0x29A3)]
+
+	boolean PrintHeaderPageNumber(void);
+
+	[id(0x252), propput, helpstring("´òÓ¡:Ò³Ã¼ÄÚÈÝ:Ò³Âë£¿"), helpcontext(0x29A3)]
+
+	void PrintHeaderPageNumber([in] boolean val);
+
+	[id(0x253), propget, helpstring("´òÓ¡:Ò³Ã¼ÄÚÈÝ:VIÍ¼±ê£¿"), helpcontext(0x29A4)]
+
+	boolean PrintHeaderVIIcon(void);
+
+	[id(0x253), propput, helpstring("´òÓ¡:Ò³Ã¼ÄÚÈÝ:VIÍ¼±ê£¿"), helpcontext(0x29A4)]
+
+	void PrintHeaderVIIcon([in] boolean val);
+
+	[id(0x254), propget, helpstring("´òÓ¡:Ò³Ã¼ÄÚÈÝ:VIÂ·¾¶£¿"), helpcontext(0x29A5)]
+
+	boolean PrintingHeaderVIPath(void);
+
+	[id(0x254), propput, helpstring("´òÓ¡:Ò³Ã¼ÄÚÈÝ:VIÂ·¾¶£¿"), helpcontext(0x29A5)]
+
+	void PrintingHeaderVIPath([in] boolean val);
+
+	[id(0x259), propget, helpstring("Ç°Ãæ°å´°¿Ú:¶¯×÷"), helpcontext(0x29A6)]
+
+	FPBehaviorEnum FPBehavior(void);
+
+	[id(0x259), propput, helpstring("Ç°Ãæ°å´°¿Ú:¶¯×÷"), helpcontext(0x29A6)]
+
+	void FPBehavior([in] FPBehaviorEnum val);
+
+	[id(0x260), propget, helpstring("Ç°Ãæ°å´°¿Ú:×´Ì¬"), helpcontext(0x29A7)]
+
+	FPStateEnum FPState(void);
+
+	[id(0x260), propput, helpstring("Ç°Ãæ°å´°¿Ú:×´Ì¬"), helpcontext(0x29A7)]
+
+	void FPState([in] FPStateEnum val);
+
+	[id(0x262), propget, helpstring("´òÓ¡:³ÌÐò¿òÍ¼Ëõ·Å£¿"), helpcontext(0x29A8)]
+
+	boolean PrintingBDScaling(void);
+
+	[id(0x262), propput, helpstring("´òÓ¡:³ÌÐò¿òÍ¼Ëõ·Å£¿"), helpcontext(0x29A8)]
+
+	void PrintingBDScaling([in] boolean val);
+
+	[id(0x266), propget, helpstring("Connector Pane:Checksum (Deprecated)"), helpcontext(0x29A9)]
+
+	long _CPTM_CRC(void);
+
+	[id(0x267), propget, helpstring("Front Panel Window:OS Window"), helpcontext(0x29AA)]
+
+	long _FPWinOSWindow(void);
+
+	[id(0x26F), propget, helpstring("VIËùÊôÓ¦ÓÃ³ÌÐò"), helpcontext(0x29AE)]
+
+	_Ó¦ÓÃ³ÌÐò* OwningApp(void);
+
+	[id(0x273), propget, helpstring("Ç°Ãæ°å´°¿Ú:Í¸Ã÷¶È"), helpcontext(0x29AF)]
+
+	char FPTransparency(void);
+
+	[id(0x273), propput, helpstring("Ç°Ãæ°å´°¿Ú:Í¸Ã÷¶È"), helpcontext(0x29AF)]
+
+	void FPTransparency([in] char val);
+
+	[id(0x274), propget, helpstring("Ç°Ãæ°å´°¿Ú:ÒÔÍ¸Ã÷·½Ê½ÔËÐÐVI"), helpcontext(0x29B0)]
+
+	boolean FPRunTransparently(void);
+
+	[id(0x274), propput, helpstring("Ç°Ãæ°å´°¿Ú:ÒÔÍ¸Ã÷·½Ê½ÔËÐÐVI"), helpcontext(0x29B0)]
+
+	void FPRunTransparently([in] boolean val);
+
+	[id(0x275), propget, helpstring("Ç°Ãæ°å´°¿Ú:ÏÔÊ¾Æ÷"), helpcontext(0x29B1)]
+
+	short FPMonitor(void);
+
+	[id(0x275), propput, helpstring("Ç°Ãæ°å´°¿Ú:ÏÔÊ¾Æ÷"), helpcontext(0x29B1)]
+
+	void FPMonitor([in] short val);
+
+	[id(0x27F), propget, helpstring("Connector Pane:Checksum"), helpcontext(0x29B3)]
+
+	long _CPTM_CRC_New(void);
+
+	[id(0x280), propget, helpstring("Callees' Paths"), helpcontext(0x29B4)]
+
+	VARIANT _CalleesPaths(void);
+
+	[id(0x281), propget, helpstring("Callers' Paths"), helpcontext(0x29B5)]
+
+	VARIANT _CallersPaths(void);
+
+	[id(0x285), propget, helpstring("VI¸±±¾Ãû"), helpcontext(0x29B6)]
+
+	BSTR CloneName(void);
+
+	[id(0x286), propget, helpstring("ÊôÓÚ¸±±¾VI"), helpcontext(0x29B7)]
+
+	boolean IsCloneVI(void);
+
+	[id(0x288), propget, helpstring("Ö´ÐÐ:ÖØÈëÀàÐÍ"), helpcontext(0x29B8)]
+
+	VARIANT ReentrancyType(void);
+
+	[id(0x29F), propget, helpstring("Front Panel Window:Native Window"), helpcontext(0x29B9)]
+
+	VARIANT _FPWinNativeWindow(void);
+
+	[id(0x2B2), propget, helpstring("Connector Pane:Checksum Ignore Dynamic Dispatch"), helpcontext(0x29BE)]
+
+	long _CPTM_CRC_IgnoreDynamicDispatch(void);
+
+
+
+	// methods
+
+
+
+	[id(0x3E9), helpstring("Í¨¹ý´ø±êÇ©µÄÎÄ±¾ÎÄ¼þµ¼ÈëÏÂÁÐVIºÍÇ°Ãæ°å¶ÔÏóÏà¹ØµÄ×Ö·û´®:VIÃû³ÆºÍËµÃ÷¡¢¶ÔÏó±êÌâ±êÇ©¡¢¶ÔÏó×ÔÓÉ±êÇ©¡¢Ä¬ÈÏÊý¾Ý£¨×Ö·û´®¡¢±í¸ñ¡¢Â·¾¶ºÍÊý×éÄ¬ÈÏÊý¾Ý£©¡¢Ë½ÓÐÊý¾Ý£¨ÁÐ±í¿òÏîÃû³Æ¡¢±í¸ñÐÐÊ×ºÍÁÐÊ×¡¢Í¼ÐÎÇúÏßÃû³Æ¡¢Í¼ÐÎÓÎ±êÃû³Æ¡¢Í¼ÐÎ×¢ÊÍÃû³ÆºÍÑ¡Ïî¿¨¿Ø¼þµÄÑ¡Ïî¿¨±êÌâ£©¡"), helpcontext(0x29C2)]
+
+	void ImportVIStrings([in] BSTR stringFile,
+
+		[in, optional] VARIANT interactive,
+
+		[in, optional] VARIANT logFile);
+
+	[id(0x3EC), helpstring("ÖÐÖ¹Ö´ÐÐ¶¥²ãVI¡£"), helpcontext(0x29C4)]
+
+	void Abort();
+
+	[id(0x3ED), helpstring("Í¨¹ý´òÓ¡»ú´òÓ¡VIÐÅÏ¢¡£"), helpcontext(0x29C5)]
+
+	void PrintVIToPrinter([in, optional] VARIANT format,
+
+		[in, optional] VARIANT scalePanel,
+
+		[in, optional] VARIANT scaleDiagram,
+
+		[in, optional] VARIANT pageHeaders,
+
+		[in, optional] VARIANT pageBreaks,
+
+		[in, optional] VARIANT sectionHeaders);
+
+	[id(0x3F4), helpstring("Ê¹ËùÓÐÇ°Ãæ°å¿Ø¼þµÄµ±Ç°ÖµÎªÄ¬ÈÏÖµ¡£"), helpcontext(0x29CA)]
+
+	void ReinitializeAllToDefault();
+
+	[id(0x3F5), helpstring("Get the value of the named control. The first time you call this method on a VI whose front panel is not open, this method returns the default values of the control rather than the actual values. Thereafter, it returns the actual value."), helpcontext(0x29CB)]
+
+	VARIANT GetControlValue([in] BSTR controlName);
+
+	[id(0x3F6), helpstring("Set the value of the named control."), helpcontext(0x29CC)]
+
+	void SetControlValue([in] BSTR controlName,
+
+		[in] VARIANT value);
+
+	[id(0x3F7), helpstring("Call the VI as a subVI"), helpcontext(0x29CD)]
+
+	void Call([in, out, optional] VARIANT* paramNames,
+
+		[in, out, optional] VARIANT* paramVals);
+
+	[id(0x3F8), helpstring("LabVIEW no longer supports this method. Use the Get Panel Image method instead."), helpcontext(0x29CE)]
+
+	void GetPanelImage([in, optional] VARIANT visibleOnly,
+
+		[in, optional] VARIANT imgDepth,
+
+		[out, optional] VARIANT* img,
+
+		[out, optional] VARIANT* colors,
+
+		[out, optional] VARIANT* bounds);
+
+	[id(0x3F9), helpstring("Run the VI as a top level VI."), helpcontext(0x29CF)]
+
+	void Run([in, optional] VARIANT async);
+
+	[id(0x3FB), helpstring("ÔÚµ±Ç°´òÓ¡»úÖÐ½ö´òÓ¡Ç°Ãæ°å¡£¸Ã·½·¨²»¿ÉÓÃÓÚ´òÓ¡³ÌÐò¿òÍ¼¡¢¿Ø¼þÁÐ±í»ò¶àÌ¬VIµÄÇ°Ãæ°å¡£"), helpcontext(0x29D1)]
+
+	void PrintPanel([in, optional] VARIANT entirePanel);
+
+	[id(0x3FD), helpstring("·µ»ØVIµÄËø¶¨×´Ì¬£¬²¢±íÃ÷VIµÄÃÜÂëÊÇ·ñÔÚÃÜÂë»º´æÖÐ¡£"), helpcontext(0x29D2)]
+
+	VARIANT GetLockState([out, optional] VARIANT* pwdInCache);
+
+	[id(0x406), helpstring("Calls the specified vi as a sub vi. Call2 allows you to optionally open the front panel before call, closes it afterwards or suspend the VI at the start of call. You can also optionally make LabVIEW as the active application whenever the front panel "), helpcontext(0x29D5)]
+
+	void Call2([in, out, optional] VARIANT* paramNames,
+
+		[in, out, optional] VARIANT* paramVals,
+
+		[in, optional] VARIANT openFP,
+
+		[in, optional] VARIANT closeFPAfterCall,
+
+		[in, optional] VARIANT suspendOnCall,
+
+		[in, optional] VARIANT bringAppToFront);
+
+	[id(0x409), helpstring("Removes all tags with the specified tag name.  Returns number of tags removed."), helpcontext(0x29D7)]
+
+	long _RemoveTags([in] BSTR tagName);
+
+	[id(0x40A), helpstring("Replaces the data associated with all tags of specified name. Returns number of tags changed."), helpcontext(0x29D8)]
+
+	long _SetTags([in] BSTR tagName,
+
+		[in] VARIANT value);
+
+	[id(0x40B), helpstring("Changes persistence of all tags of specified name. Returns number of tags changed."), helpcontext(0x29D9)]
+
+	long _SetTagsPersistence([in] BSTR tagName,
+
+		[in] boolean isPersistent);
+
+	[id(0x40C), helpstring("Removes all tags. Returns number of tags removed."), helpcontext(0x29DA)]
+
+	long _RemoveAllTags();
+
+	[id(0x40D), helpstring("Sets a Tag for the VI. Persistence specifies whether the tag will survive a save/load."), helpcontext(0x29DB)]
+
+	boolean _SetTag([in] BSTR tagName,
+
+		[in] VARIANT value,
+
+		[in, optional] VARIANT isPersistent,
+
+		[out, optional] VARIANT* oldValue);
+
+	[id(0x40E), helpstring("Gets the data set by using Set Tag."), helpcontext(0x29DC)]
+
+	boolean _GetTag([in] BSTR tagName,
+
+		[out, optional] VARIANT* isPersistent,
+
+		[out, optional] VARIANT* value);
+
+	[id(0x40F), helpstring("Removes a tag set by calling Set Tag."), helpcontext(0x29DD)]
+
+	boolean _RemoveTag([in] BSTR tagName,
+
+		[out, optional] VARIANT* oldValue);
+
+	[id(0x424), helpstring("Opens the front panel window and returns an error if the front panel is already open. LabVIEW no longer supports this method. Use the Open FP method instead."), helpcontext(0x29E0)]
+
+	void OldOpenFrontPanel([in, optional] VARIANT activate,
+
+		[in, optional] VARIANT state);
+
+	[id(0x425), helpstring("¹Ø±ÕÇ°Ãæ°å´°¿Ú¡£"), helpcontext(0x29E1)]
+
+	void CloseFrontPanel();
+
+	[id(0x438), helpstring("´ò¿ªÇ°Ãæ°å´°¿Ú¡£ÈçÇ°Ãæ°åÒÑ¾­´ò¿ª£¬ÔòÇ°Ãæ°å´°¿ÚµÄ×´Ì¬ÎªÍ¨¹ýÁ¬Ïß¶Ô¸Ã·½·¨Éè¶¨µÄ×´Ì¬¡£"), helpcontext(0x29E2)]
+
+	void OpenFrontPanel([in, optional] VARIANT activate,
+
+		[in, optional] VARIANT state);
+
+	[id(0x441), helpstring("Ö¸¶¨ÊÇ·ñÔÚ¼ÆËã»úÆÁÄ»ÉÏÊ¹Ç°Ãæ°å´°¿Ú×Ô¶¯¾ÓÖÐ¡£"), helpcontext(0x29E3)]
+
+	void CenterFrontPanel();
+
+	[id(0x445), helpstring("·µ»ØÔËÐÐÊ±Ç°Ãæ°å´°¿ÚµÄÄ¬ÈÏÎ»ÖÃ¡£"), helpcontext(0x29E6)]
+
+	void FPGetRuntimePos([out, optional] VARIANT* type,
+
+		[out, optional] VARIANT* position,
+
+		[out, optional] VARIANT* size,
+
+		[out, optional] VARIANT* monitor,
+
+		[out, optional] VARIANT* useCurPos,
+
+		[out, optional] VARIANT* useCurSize);
+
+	[id(0x446), helpstring("VIÔËÐÐÊ±£¬ÅäÖÃVI±£³ÖÇ°Ãæ°å´°¿ÚÎ»ÖÃ¡£"), helpcontext(0x29E7)]
+
+	void FPRunTimePosRunUnchanged();
+
+	[id(0x447), helpstring("ÉèÖÃÔÚÃ¿´ÎÔËÐÐVIÊ±¾ÓÖÐÏÔÊ¾ÒýÓÃVIµÄÇ°Ãæ°å¡£Èç¹ûµ÷ÓÃ¸Ã·½·¨Ê±VIÔÚÔËÐÐ£¬ÔòËù×öµÄ¸Ä±äÔÚÏÂ´ÎVIÔËÐÐÊ±ÉúÐ§¡£"), helpcontext(0x29E8)]
+
+	void FPRunTimePosRunCentered([in, optional] VARIANT monitor,
+
+		[in, optional] VARIANT size);
+
+	[id(0x448), helpstring("ÉèÖÃÔÚÃ¿´ÎÔËÐÐVIÊ±×î´ó»¯ÏÔÊ¾Ç°Ãæ°å¡£Èç¹ûµ÷ÓÃ¸Ã·½·¨Ê±VIÔÚÔËÐÐ£¬ÔòËù×öµÄ¸Ä±äÔÚÏÂ´ÎVIÔËÐÐÊ±ÉúÐ§¡£"), helpcontext(0x29E9)]
+
+	void FPRunTimePosRunMax([in, optional] VARIANT monitor);
+
+	[id(0x449), helpstring("ÉèÖÃÔÚÃ¿´ÎÔËÐÐVIÊ±×îÐ¡»¯ÏÔÊ¾Ç°Ãæ°å¡£Èç¹ûµ÷ÓÃ¸Ã·½·¨Ê±VIÔÚÔËÐÐ£¬ÔòËù×öµÄ¸Ä±äÔÚÏÂ´ÎVIÔËÐÐÊ±ÉúÐ§¡£"), helpcontext(0x29EA)]
+
+	void FPRunTimePosRunMin([in, optional] VARIANT monitor);
+
+	[id(0x44A), helpstring("ÉèÖÃÃ¿´ÎÔËÐÐVIÊ±ÔÚ×Ô¶¨ÖÆÎ»ÖÃÏÔÊ¾ÒýÓÃVIµÄÇ°Ãæ°å¡£Èç¹ûµ÷ÓÃ¸Ã·½·¨Ê±VIÔÚÔËÐÐ£¬ÔòËù×öµÄ¸Ä±äÔÚÏÂ´ÎVIÔËÐÐÊ±ÉúÐ§¡£"), helpcontext(0x29EB)]
+
+	void FPRunTimePosRunCustom([in, optional] VARIANT position,
+
+		[in, optional] VARIANT size);
+
+	[id(0x453), helpstring("Get a list of all tags associated with a VI. Return TRUE if any tags were found and FALSE if no tags were found."), helpcontext(0x29ED)]
+
+	boolean _GetTagNames([out] VARIANT* TagNames);
+
+	[id(0x46A), helpstring("Gets the default value of a named control or indicator as variant data. Use the Variant to Data function to convert the data to another LabVIEW data type."), helpcontext(0x29EE)]
+
+	VARIANT _GetCtrlDefaultValVariant([in] BSTR controlName);
+
+	[id(0x46B), helpstring("Gets the default value for the array element specified by the array of strings input. The array of strings input needs to be in the format Cluster1>>Cluster2>>Array1>>Cluster3>>Array2. This default value is returned as variant data. Use the Variant t"), helpcontext(0x29EF)]
+
+	VARIANT _GetCtrlArrayElemDefaultValVariant([in] VARIANT controlNamesPath);
+
+	[id(0x47A), helpstring("¸Ã·½·¨·µ»ØVIµÄVIÒÀÀµ¹ØÏµµÄÃû³ÆºÍÂ·¾¶¡£Ò²¿ÉÍ¨¹ý¸Ã·½·¨·µ»ØVIµÄVIÒÀÀµ¹ØÏµµÄ×Ó¼¯¡£¸Ã·½·¨²»»á·µ»Ø·ÇVIµÄ¿âÒÀÀµ¹ØÏµ£¨ÀýÈç£¬ÏîÄ¿¿â¡¢XControl¡¢ÀàºÍ×´Ì¬Í¼£©¡£"), helpcontext(0x29F0)]
+
+	void GetVIDependencies([out, optional] VARIANT* dependencyNames,
+
+		[out, optional] VARIANT* dependencyPaths,
+
+		[in, optional] VARIANT wholeHierarchy,
+
+		[in, optional] VARIANT commentedOut,
+
+		[in, optional] VARIANT staticVIRefs,
+
+		[in, optional] VARIANT dynDispatching,
+
+		[in, optional] VARIANT missingItems,
+
+		[in, optional] VARIANT standardVIs,
+
+		[in, optional] VARIANT reentrantClones,
+
+		[in, optional] VARIANT polyVIs,
+
+		[in, optional] VARIANT globalVIs,
+
+		[in, optional] VARIANT controlVIs,
+
+		[in, optional] VARIANT genericVIs);
+
+	[id(0x497), helpstring("Private method for TestStand."), helpcontext(0x29F1)]
+
+	VARIANT _GetControlValue2([in] BSTR controlName,
+
+		[in] long flags);
+
+	[id(0x498), helpstring("Gets the default value of a named control or indicator as variant data. Use the Variant to Data function to convert the data to another LabVIEW data type."), helpcontext(0x29F2)]
+
+	VARIANT _GetCtrlDefaultValVariant2([in] BSTR controlName,
+
+		[in] long flags);
+
+	[id(0x499), helpstring("Gets the default value for the array element specified by the array of strings input. The array of strings input needs to be in the format Cluster1>>Cluster2>>Array1>>Cluster3>>Array2. This default value is returned as variant data. Use the Variant t"), helpcontext(0x29F3)]
+
+	VARIANT _GetCtrlArrayElemDefaultValVariant2([in] VARIANT controlNamesPath,
+
+		[in] long flags);
+
+	[id(0x49A), helpstring("Calls the specified vi as a sub vi. Call2 allows you to optionally open the front panel before call, closes it afterwards or suspend the VI at the start of call. You can also optionally make LabVIEW as the active application whenever the front panel "), helpcontext(0x29F4)]
+
+	void _Call3([in, out, optional] VARIANT* paramNames,
+
+		[in, out, optional] VARIANT* paramVals,
+
+		[in, optional] VARIANT openFP,
+
+		[in, optional] VARIANT closeFPAfterCall,
+
+		[in, optional] VARIANT suspendOnCall,
+
+		[in, optional] VARIANT bringAppToFront,
+
+		[in, optional] VARIANT conversionFlags);
+
+	[id(0x4A4), helpstring("Exports a VIs interface information including Context Help image."), helpcontext(0x29F6)]
+
+	void _ExportInterface2([out, optional] VARIANT* image,
+
+		[out, optional] VARIANT* numConnections,
+
+		[out, optional] VARIANT* whiskerRects,
+
+		[out, optional] VARIANT* termNameRects,
+
+		[out, optional] VARIANT* captions,
+
+		[out, optional] VARIANT* wireRequirements,
+
+		[out, optional] VARIANT* ioStatus,
+
+		[out, optional] VARIANT* dataTypes,
+
+		[out, optional] VARIANT* conNum,
+
+		[out, optional] VARIANT* extendedInformation);
+
+	}
+
+
+
+	[
+
+	 uuid(ABD8AE98-2C0F-4929-9CAF-C90993A1C545),
+
+	 helpstring("VI DispInterface"),
+
+	 helpcontext(0x2712)
+
+	]
+
+
+
+	dispinterface VirtualInstrument
+
+	{
+
+	 interface _IVI;
+
+	}
+
+
+
+	[
+
+	 //Interface ÏîÄ¿
+
+	 odl,
+
+	 uuid($ÏîÄ¿InterfaceGUID),
+
+	 helpstring("ÏîÄ¿ Interface"),
+
+	 helpcontext(0x2713)
+
+	]
+
+
+
+	interface _IÏîÄ¿ : IDispatch
+
+	{	// properties
+
+
+
+	[id(0x2710940D), propget, helpstring("Ó¦ÓÃ³ÌÐò"), helpcontext(0x29F8)]
+
+	_Ó¦ÓÃ³ÌÐò* Application(void);
+
+	[id(0x2710940E), propget, helpstring("ËµÃ÷ÐÅÏ¢"), helpcontext(0x29F9)]
+
+	BSTR Description(void);
+
+	[id(0x27109421), propget, helpstring("ÎÒµÄµçÄÔ"), helpcontext(0x29FA)]
+
+	ÖÕ¶ËÏî* MyComputer(void);
+
+	[id(0x27109401), propget, helpstring("Ãû³Æ"), helpcontext(0x29FB)]
+
+	BSTR Name(void);
+
+	[id(0x27109402), propget, helpstring("Â·¾¶"), helpcontext(0x29FC)]
+
+	BSTR Path(void);
+
+	[id(0x27109403), propget, helpstring("¸ù"), helpcontext(0x29FD)]
+
+	ÏîÄ¿Ïî* Root(void);
+
+	[id(0x27109420), propget, helpstring("ÖÕ¶Ë"), helpcontext(0x29FF)]
+
+	VARIANT Targets(void);
+
+	[id(0x27109427), propget, helpstring("Files View Root"), helpcontext(0x2A01)]
+
+	ÏîÄ¿ÎÄ¼þ²é¿´Ïî* FilesViewRoot(void);
+
+
+
+	// methods
+
+
+
+	[id(0x27109002), helpstring("¹Ø±ÕLabVIEWÏîÄ¿ºÍÆäÖÐËùÓÐÏîµÄÒýÓÃ¡£¸Ã·½·¨»¹¿É¹Ø±ÕÒÑ¾­´ò¿ªµÄÏîÄ¿ä¯ÀÀÆ÷´°¿Ú£¬²¢¹Ø±ÕËùÓÐÊôÓÚ¸ÃÏîÄ¿µÄÓ¦ÓÃ³ÌÐòÊµÀýÖÐÈ«²¿´ò¿ªµÄVI¡£»¹¿ÉÍ¨¹ýÑ¡ÔñÎÄ¼þ>>¹Ø±ÕËùÓÐ¹Ø±ÕÏîÄ¿ºÍÏîÄ¿ä¯ÀÀÆ÷´°¿Ú¡£"), helpcontext(0x2A02)]
+
+	void Close();
+
+	}
+
+
+
+	[
+
+	 uuid($ÏîÄ¿DispatchGUID),
+
+	 helpstring("ÏîÄ¿ DispInterface"),
+
+	 helpcontext(0x2713)
+
+	]
+
+
+
+	dispinterface ÏîÄ¿
+
+	{
+
+	 interface _IÏîÄ¿;
+
+	}
+
+
+
+	[
+
+	 //Interface ÏîÄ¿Ïî
+
+	 odl,
+
+	 uuid($ÏîÄ¿ÏîInterfaceGUID),
+
+	 helpstring("ÏîÄ¿Ïî Interface"),
+
+	 helpcontext(0x2714)
+
+	]
+
+
+
+	interface _IÏîÄ¿Ïî : IDispatch
+
+	{	// properties
+
+
+
+	[id(0x35B53C00), propget, helpstring("ÀàÐÍÈ«¾ÖÎ¨Ò»±êÊ¶·û"), helpcontext(0x2A08)]
+
+	BSTR TypeGUID(void);
+
+	[id(0x35B53C01), propget, helpstring("Ãû³Æ"), helpcontext(0x2A09)]
+
+	BSTR Name(void);
+
+	[id(0x35B53C02), propget, helpstring("Â·¾¶"), helpcontext(0x2A0A)]
+
+	BSTR Path(void);
+
+	[id(0x35B53C03), propget, helpstring("Í¼±ê"), helpcontext(0x2A0B)]
+
+	VARIANT Icon(void);
+
+	[id(0x35B53C05), propget, helpstring("ÏîÄ¿"), helpcontext(0x2A0D)]
+
+	ÏîÄ¿* Project(void);
+
+	[id(0x35B53C06), propget, helpstring("ÏîID"), helpcontext(0x2A0E)]
+
+	BSTR ItemID(void);
+
+	[id(0x35B53C07), propget, helpstring("VIÒýÓÃ"), helpcontext(0x2A0F)]
+
+	VirtualInstrument* VI(void);
+
+	[id(0x35B53C08), propget, helpstring("°üº¬Ïî[]"), helpcontext(0x2A10)]
+
+	VARIANT Children(void);
+
+	[id(0x35B53C09), propget, helpstring("ËùÓÐÕß"), helpcontext(0x2A11)]
+
+	ÏîÄ¿Ïî* Parent(void);
+
+	[id(0x35B53C0D), propget, helpstring("ÏÔÊ¾Ãû³Æ"), helpcontext(0x2A12)]
+
+	BSTR DisplayName(void);
+
+	[id(0x35B53C11), propget, helpstring("ÀàÐÍ×Ö·û´®"), helpcontext(0x2A13)]
+
+	BSTR TypeString(void);
+
+	[id(0x35B53C12), propget, helpstring("¿âÏî:ÀàÐÍ"), helpcontext(0x2A14)]
+
+	BSTR LibraryItemType(void);
+
+	[id(0x35B53C13), propget, helpstring("¿âÏîÀàÐÍ:×Ö·û´®"), helpcontext(0x2A15)]
+
+	BSTR LibraryItemTypeString(void);
+
+	[id(0x35B53C16), propget, helpstring("ÖÕ¶Ë"), helpcontext(0x2A16)]
+
+	ÖÕ¶ËÏî* Target(void);
+
+	[id(0x35B53C1D), propget, helpstring("VIÒýÓÃÎ´¼ÓÔØ"), helpcontext(0x2A17)]
+
+	VirtualInstrument* VINoLoad(void);
+
+	[id(0x35B53C2A), propget, helpstring("³åÍ»ÄÚ£¿"), helpcontext(0x2A1D)]
+
+	boolean InConflict(void);
+
+	[id(0x35B53C2B), propget, helpstring("°üÀ¨³åÍ»£¿"), helpcontext(0x2A1E)]
+
+	boolean ContainsConflicts(void);
+
+
+
+	// methods
+
+
+
+	[id(0x35B5380C), helpstring("·µ»ØÓëÏîÄ¿ÏîÏà¹ØµÄ±êÊ¶·ûµÄÖµ¡£"), helpcontext(0x2A26)]
+
+	boolean GetTag([in] BSTR tagName,
+
+		[out] VARIANT* value,
+
+		[out] boolean* isPersistent);
+
+	[id(0x35B5380F), helpstring("·µ»ØÓÉÒýÓÃµÄÏîÄ¿ÏîµÄËùÓÐ±êÊ¶·ûÃû³Æ×é³ÉµÄÊý×é¡£"), helpcontext(0x2A29)]
+
+	VARIANT GetTagNames();
+
+	[id(0x35B53810), helpstring("·µ»ØÏîÄ¿Ê÷Ä³¸öÏîÏÂµÄËùÓÐÏîÄ¿Ïî¡£ÀýÈç£¬ÈçÔÚÏîÄ¿¿âAÉÏµ÷ÓÃ¸Ã·½·¨£¬A°üº¬ÄÚ²¿ÏîÄ¿¿âB¡£¸Ã·½·¨½«·µ»ØÏîÄ¿¿âAºÍB°üº¬µÄËùÓÐÏî¡£"), helpcontext(0x2A2A)]
+
+	VARIANT GetAllDescendents([in, optional] VARIANT type,
+
+		[in, optional] VARIANT excludeDependencies,
+
+		[in, optional] VARIANT excludeBuilds,
+
+		[in, optional] VARIANT excludeTargets);
+
+	[id(0x35B53822), helpstring("·µ»ØXML±êÊ¶·ûÖÐµÄÖµ¡£"), helpcontext(0x2A2B)]
+
+	boolean GetXMLTag([in] BSTR tagName,
+
+		[out] BSTR* value,
+
+		[out] boolean* isPersistent);
+
+	}
+
+
+
+	[
+
+	 uuid($ÏîÄ¿ÏîDispatchGUID),
+
+	 helpstring("ÏîÄ¿Ïî DispInterface"),
+
+	 helpcontext(0x2714)
+
+	]
+
+
+
+	dispinterface ÏîÄ¿Ïî
+
+	{
+
+	 interface _IÏîÄ¿Ïî;
+
+	}
+
+
+
+	[
+
+	 //Interface ¿â
+
+	 odl,
+
+	 uuid($¿âInterfaceGUID),
+
+	 helpstring("¿â Interface"),
+
+	 helpcontext(0x2715)
+
+	]
+
+
+
+	interface _I¿â : _IÏîÄ¿Ïî
+
+	{	// properties
+
+
+
+	[id(0x4D10E802), propget, helpstring("ËµÃ÷ÐÅÏ¢"), helpcontext(0x2A38)]
+
+	BSTR Description(void);
+
+	[id(0x4D10E805), propget, helpstring("°ïÖú:ÎÄµµÂ·¾¶"), helpcontext(0x2A39)]
+
+	BSTR HelpDocumentPath(void);
+
+	[id(0x4D10E804), propget, helpstring("°ïÖú:ÎÄµµ±êÊ¶·û"), helpcontext(0x2A3A)]
+
+	BSTR HelpDocumentTag(void);
+
+	[id(0x4D10E800), propget, helpstring("±¾µØ»¯Ãû³Æ"), helpcontext(0x2A3B)]
+
+	BSTR LocalName(void);
+
+	[id(0x4D10E801), propget, helpstring("°æ±¾"), helpcontext(0x2A3C)]
+
+	VARIANT Version(void);
+
+
+
+	// methods
+
+
+
+	[id(0x4D10E401), helpstring("»ñÈ¡LabVIEWÏîÄ¿¿âÖÐÏîµÄ·ÃÎÊ·¶Î§£¨ÀýÈç£¬¹«¹²»òË½ÓÐ£©¡£"), helpcontext(0x2A40)]
+
+	LibraryItemScopeEnum GetSourceScope([in] ÏîÄ¿Ïî* sourceRef,
+
+		[out, optional] VARIANT* inherited);
+
+	[id(0x4D10E403), helpstring("·µ»ØLabVIEWÏîÄ¿¿âµÄËø¶¨×´Ì¬£¬²¢±íÃ÷LabVIEWÏîÄ¿¿âµÄÃÜÂëÊÇ·ñÔÚÃÜÂë»º´æÖÐ¡£"), helpcontext(0x2A42)]
+
+	VARIANT GetLockState([out, optional] VARIANT* pwdInCache);
+
+	[id(0x4D10E404), helpstring("»ñÈ¡ÎªLabVIEWÏîÄ¿¿âÉèÖÃµÄ±êÊ¶·û¡£"), helpcontext(0x2A43)]
+
+	boolean GetLibTag([in] BSTR tagName,
+
+		[out] VARIANT* value,
+
+		[out] boolean* isPersistent,
+
+		[in, optional] VARIANT itemRef);
+
+	[id(0x4D10E407), helpstring("»ñÈ¡LabVIEWÏîÄ¿¿âÖÐÉèÖÃµÄËùÓÐ±êÊ¶·ûµÄÃû³ÆÁÐ±í¡£"), helpcontext(0x2A46)]
+
+	VARIANT GetTagNames([in, optional] VARIANT itemRef);
+
+	}
+
+
+
+	[
+
+	 uuid($¿âDispatchGUID),
+
+	 helpstring("¿â DispInterface"),
+
+	 helpcontext(0x2715)
+
+	]
+
+
+
+	dispinterface ¿â
+
+	{
+
+	 interface _I¿â;
+
+	}
+
+
+
+	[
+
+	 //Interface ÖÕ¶ËÏî
+
+	 odl,
+
+	 uuid($ÖÕ¶ËÏîInterfaceGUID),
+
+	 helpstring("ÖÕ¶ËÏî Interface"),
+
+	 helpcontext(0x2718)
+
+	]
+
+
+
+	interface _IÖÕ¶ËÏî : _IÏîÄ¿Ïî
+
+	{	// properties
+
+
+
+	[id(0x6851E803), propget, helpstring("³ÌÐòÉú³É¹æ·¶"), helpcontext(0x2A50)]
+
+	ÏîÄ¿Ïî* BuildSpecifications(void);
+
+	[id(0x6851E804), propget, helpstring("ÒÀÀµ¹ØÏµ"), helpcontext(0x2A51)]
+
+	ÏîÄ¿Ïî* Dependencies(void);
+
+
+
+	// methods
+
+
+
+	}
+
+
+
+	[
+
+	 uuid($ÖÕ¶ËÏîDispatchGUID),
+
+	 helpstring("ÖÕ¶ËÏî DispInterface"),
+
+	 helpcontext(0x2718)
+
+	]
+
+
+
+	dispinterface ÖÕ¶ËÏî
+
+	{
+
+	 interface _IÖÕ¶ËÏî;
+
+	}
+
+};

@@ -1,0 +1,284 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(简体，中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Basic.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Basic.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "FileDescription", "Basic Microsoft 基础类应用程序"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "Basic"
+            VALUE "LegalCopyright", "版权所有 (C) 2012"
+            VALUE "OriginalFilename", "Basic.EXE"
+            VALUE "ProductName", "Basic 应用程序"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_LOG DIALOG 0, 0, 239, 180
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Camera SDK call trace"
+FONT 10, "宋体"
+BEGIN
+    LISTBOX         IDC_LIST_TRACE_LOG,0,23,239,157,LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Pause",IDC_BUTTON_PAUSE,0,7,50,14
+    PUSHBUTTON      "Clean",IDC_BUTTON_CLEAN,54,7,50,14
+END
+
+IDD_BASIC_DIALOG_CN DIALOGEX 0, 0, 373, 396
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "硬件外触发和闪光灯控制（不支持外触发的型号该例程无效）"
+FONT 8, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_STATIC_PREVIEW,"Static",SS_BLACKFRAME,7,95,359,278
+    PUSHBUTTON      "播放",IDC_BUTTON_PREVIEW,7,7,50,14
+    PUSHBUTTON      "其它参数设置",IDC_BUTTON_CAMERA_SETTINGS,62,7,68,14
+    LTEXT           "Camera ",IDC_STATIC_INFORMATION,7,382,359,11
+    GROUPBOX        "触发信号",IDC_STATIC,7,27,176,58
+    GROUPBOX        "闪光灯信号(软触发下同样有效)",IDC_STATIC,200,27,166,58
+    COMBOBOX        IDC_COMBO1,56,42,86,65,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "触发方式：",IDC_STATIC,13,45,38,8
+    LTEXT           "去抖时间:",IDC_STATIC,13,63,34,8
+    EDITTEXT        IDC_EDIT1,56,61,40,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO2,237,39,84,71,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "模式:",IDC_STATIC,209,42,20,8
+    LTEXT           "有效极性:",IDC_STATIC,209,64,34,8
+    CONTROL         "低电平",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,254,63,38,10
+    CONTROL         "高电平",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,300,63,38,10
+END
+
+IDD_BASIC_DIALOG DIALOGEX 0, 0, 373, 396
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "External trigger and strobe control"
+FONT 8, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_STATIC_PREVIEW,"Static",SS_BLACKFRAME,7,95,359,278
+    PUSHBUTTON      "Play",IDC_BUTTON_PREVIEW,7,7,50,14
+    PUSHBUTTON      "Settings",IDC_BUTTON_CAMERA_SETTINGS,62,7,68,14
+    LTEXT           "Camera ",IDC_STATIC_INFORMATION,7,382,359,11
+    GROUPBOX        "Trigger signal",IDC_STATIC,7,27,176,58
+    GROUPBOX        "Strobe",IDC_STATIC,200,27,166,58
+    COMBOBOX        IDC_COMBO1,56,42,86,65,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Type：",IDC_STATIC,13,45,24,8
+    LTEXT           "Jitter Time:",IDC_STATIC,13,63,49,8
+    EDITTEXT        IDC_EDIT1,75,60,40,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO2,237,39,84,71,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Mode:",IDC_STATIC,209,42,21,8
+    LTEXT           "Polarity:",IDC_STATIC,209,64,37,8
+    CONTROL         "Low",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,254,63,28,10
+    CONTROL         "High",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,300,63,32,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_LOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 232
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 173
+    END
+
+    IDD_BASIC_DIALOG_CN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 366
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 389
+    END
+
+    IDD_BASIC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 366
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 389
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "关于 Basic(&A)..."
+END
+
+#endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英语(美国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG 0, 0, 235, 168
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Basic demo"
+FONT 8, "Cambria"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,178,147,50,14,WS_GROUP
+    EDITTEXT        IDC_EDIT_ABOUT,7,7,166,154,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 英语(美国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Basic.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

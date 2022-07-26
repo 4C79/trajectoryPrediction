@@ -1,0 +1,280 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(简体，中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Basic.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Basic.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "FileDescription", "Basic Microsoft 基础类应用程序"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "Basic"
+            VALUE "LegalCopyright", "版权所有 (C) 2012"
+            VALUE "OriginalFilename", "Basic.EXE"
+            VALUE "ProductName", "Basic 应用程序"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_LOG DIALOG 0, 0, 239, 180
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Camera SDK call trace"
+FONT 10, "宋体"
+BEGIN
+    LISTBOX         IDC_LIST_TRACE_LOG,0,23,239,157,LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Pause",IDC_BUTTON_PAUSE,0,7,50,14
+    PUSHBUTTON      "Clean",IDC_BUTTON_CLEAN,54,7,50,14
+END
+
+IDD_BASIC_DIALOG_CN DIALOGEX 0, 0, 648, 416
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Camera Demo [MultiExposure]"
+FONT 8, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_STATIC_PREVIEW,"Static",SS_BLACKFRAME,7,46,634,347
+    PUSHBUTTON      "播放",IDC_BUTTON_PREVIEW,7,7,51,16
+    PUSHBUTTON      "相机设置",IDC_BUTTON_CAMERA_SETTINGS,7,24,51,17
+    LTEXT           "Camera ",IDC_STATIC_INFORMATION,7,401,634,11
+    LTEXT           "曝光时间1(微秒)：",IDC_STATIC,81,11,64,8
+    EDITTEXT        IDC_EDIT_LONG_EXP,149,7,40,14,ES_AUTOHSCROLL
+    LTEXT           "曝光时间2(微秒)：",IDC_STATIC,81,29,64,8
+    EDITTEXT        IDC_EDIT_SHORT_EXP,149,25,40,14,ES_AUTOHSCROLL
+    LTEXT           "模拟增益1：",IDC_STATIC,199,11,42,8
+    EDITTEXT        IDC_EDIT_LONG_GAIN1,247,7,40,14,ES_AUTOHSCROLL
+    LTEXT           "模拟增益2：",IDC_STATIC,199,29,42,8
+    EDITTEXT        IDC_EDIT_SHORT_GAIN2,247,25,40,14,ES_AUTOHSCROLL
+    LTEXT           "模拟增益设置范围：",IDC_STATIC_GAIN_RANGE,314,11,219,8
+END
+
+IDD_BASIC_DIALOG DIALOGEX 0, 0, 648, 416
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Camera Demo [MultiExposure]"
+FONT 8, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_STATIC_PREVIEW,"Static",SS_BLACKFRAME,7,46,634,347
+    PUSHBUTTON      "Play",IDC_BUTTON_PREVIEW,7,7,51,16
+    PUSHBUTTON      "Settings",IDC_BUTTON_CAMERA_SETTINGS,7,24,51,17
+    LTEXT           "Camera ",IDC_STATIC_INFORMATION,7,401,634,11
+    LTEXT           "Exposure1(us)：",IDC_STATIC,81,11,60,8
+    EDITTEXT        IDC_EDIT_LONG_EXP,149,7,40,14,ES_AUTOHSCROLL
+    LTEXT           "Exposure2(us)：",IDC_STATIC,81,29,60,8
+    EDITTEXT        IDC_EDIT_SHORT_EXP,149,25,40,14,ES_AUTOHSCROLL
+    LTEXT           "Gain1：",IDC_STATIC,199,11,28,8
+    EDITTEXT        IDC_EDIT_LONG_GAIN1,247,7,40,14,ES_AUTOHSCROLL
+    LTEXT           "Gain2：",IDC_STATIC,199,29,28,8
+    EDITTEXT        IDC_EDIT_SHORT_GAIN2,247,25,40,14,ES_AUTOHSCROLL
+    LTEXT           "模拟增益设置范围：",IDC_STATIC_GAIN_RANGE,314,11,219,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_LOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 232
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 173
+    END
+
+    IDD_BASIC_DIALOG_CN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 641
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 409
+    END
+
+    IDD_BASIC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 641
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 409
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "关于 Basic(&A)..."
+END
+
+#endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英语(美国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG 0, 0, 235, 168
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Basic demo"
+FONT 8, "Cambria"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,178,147,50,14,WS_GROUP
+    EDITTEXT        IDC_EDIT_ABOUT,7,7,166,154,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 英语(美国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Basic.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

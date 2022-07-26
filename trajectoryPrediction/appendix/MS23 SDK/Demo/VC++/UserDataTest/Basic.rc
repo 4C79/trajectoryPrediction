@@ -1,0 +1,317 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(简体，中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Basic.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Basic.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "FileDescription", "Basic Microsoft 基础类应用程序"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "Basic"
+            VALUE "LegalCopyright", "版权所有 (C) 2012"
+            VALUE "OriginalFilename", "Basic.EXE"
+            VALUE "ProductName", "Basic 应用程序"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_LOG DIALOG 0, 0, 239, 180
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Camera SDK call trace"
+FONT 10, "宋体"
+BEGIN
+    LISTBOX         IDC_LIST_TRACE_LOG,0,23,239,157,LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Pause",IDC_BUTTON_PAUSE,0,7,50,14
+    PUSHBUTTON      "Clean",IDC_BUTTON_CLEAN,54,7,50,14
+END
+
+IDD_BASIC_DIALOG_CN DIALOGEX 0, 0, 373, 353
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Camera Demo [相机数据读写测试]"
+FONT 8, "宋体", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "读取",IDC_BUTTON_NAME_READ,134,58,50,14
+    GROUPBOX        "相机名自定义功能",IDC_STATIC,7,7,359,71
+    EDITTEXT        IDC_EDIT_CAMERA_NAME,56,58,74,14,ES_AUTOHSCROLL
+    LTEXT           "当前名称：",IDC_STATIC,17,62,38,8
+    EDITTEXT        IDC_EDIT_NAME_DESC,13,21,343,32,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+    PUSHBUTTON      "写入",IDC_BUTTON_NAME_WRITE,186,58,50,14
+    GROUPBOX        "序列号读写测试",IDC_STATIC,7,86,359,100
+    EDITTEXT        IDC_EDIT_SN_DESC,13,100,343,32,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+    LTEXT           "一级序列号：",IDC_STATIC,15,139,45,8
+    LTEXT           "二级序列号：",IDC_STATIC,15,154,45,8
+    LTEXT           "三级序列号：",IDC_STATIC,15,169,45,8
+    PUSHBUTTON      "读取",IDC_BUTTON_SN_READ1,177,136,50,14
+    EDITTEXT        IDC_EDIT_SN1,59,136,115,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "读取",IDC_BUTTON_SN_READ2,177,151,50,14
+    EDITTEXT        IDC_EDIT_SN2,59,151,115,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "写入",IDC_BUTTON_SN_WRITE2,229,151,50,14
+    PUSHBUTTON      "读取",IDC_BUTTON_SN_READ3,177,166,50,14
+    EDITTEXT        IDC_EDIT_SN3,59,166,115,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "写入",IDC_BUTTON_SN_WRITE3,229,166,50,14
+    GROUPBOX        "自定义数据块读写测试",IDC_STATIC_BLOCK_DATA,7,191,359,155
+    EDITTEXT        IDC_EDIT_SN_DESC2,13,206,343,32,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "写入数据：",IDC_STATIC,14,245,38,8
+    PUSHBUTTON      "读取",IDC_BUTTON_DATA_READ,10,317,42,24
+    EDITTEXT        IDC_EDIT_BLOCK_DATA_WRITE,58,243,244,47,ES_AUTOHSCROLL
+    PUSHBUTTON      "写入左侧数据",IDC_BUTTON_DATA_WRITE_EDIT,309,243,50,14
+    PUSHBUTTON      "全部写 0X00",IDC_BUTTON_DATA_WRITE_ZERO,309,260,50,14
+    PUSHBUTTON      "全部写 0XFF",IDC_BUTTON_DATA_WRITE_0XFF,309,278,50,14
+    PUSHBUTTON      "写随机数",IDC_BUTTON_DATA_WRITE_RANDOM,309,295,50,14
+    PUSHBUTTON      "写递增数",IDC_BUTTON_DATA_WRITE_INC,309,313,50,14
+    LTEXT           "读出数据：",IDC_STATIC,14,296,38,8
+    EDITTEXT        IDC_EDIT_BLOCK_DATA_READOUT,58,294,244,47,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "写入",IDC_BUTTON_SN_WRITE1,229,136,50,14
+END
+
+IDD_BASIC_DIALOG DIALOGEX 0, 0, 373, 353
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Camera Demo [User data test]"
+FONT 8, "宋体", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Read",IDC_BUTTON_NAME_READ,156,58,50,14
+    GROUPBOX        "Custom camera name",IDC_STATIC,7,7,359,71
+    EDITTEXT        IDC_EDIT_CAMERA_NAME,78,58,74,14,ES_AUTOHSCROLL
+    LTEXT           "Current name：",IDC_STATIC,17,62,56,8
+    EDITTEXT        IDC_EDIT_NAME_DESC,13,21,343,32,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+    PUSHBUTTON      "Write",IDC_BUTTON_NAME_WRITE,208,58,50,14
+    GROUPBOX        "Serial number test",IDC_STATIC,7,86,359,100
+    EDITTEXT        IDC_EDIT_SN_DESC,13,100,343,32,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+    LTEXT           "Level1:",IDC_STATIC,15,139,29,8
+    LTEXT           "Level2:",IDC_STATIC,15,154,29,8
+    LTEXT           "Level3:",IDC_STATIC,15,169,29,8
+    PUSHBUTTON      "Read",IDC_BUTTON_SN_READ1,177,136,50,14
+    EDITTEXT        IDC_EDIT_SN1,59,136,115,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Read",IDC_BUTTON_SN_READ2,177,151,50,14
+    EDITTEXT        IDC_EDIT_SN2,59,151,115,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Write",IDC_BUTTON_SN_WRITE2,229,151,50,14
+    PUSHBUTTON      "Read",IDC_BUTTON_SN_READ3,177,166,50,14
+    EDITTEXT        IDC_EDIT_SN3,59,166,115,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Write",IDC_BUTTON_SN_WRITE3,229,166,50,14
+    GROUPBOX        "User block data read write",IDC_STATIC_BLOCK_DATA,7,191,359,155
+    EDITTEXT        IDC_EDIT_SN_DESC2,13,206,343,32,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Write to:",IDC_STATIC,14,245,37,8
+    PUSHBUTTON      "Read",IDC_BUTTON_DATA_READ,10,317,42,24
+    EDITTEXT        IDC_EDIT_BLOCK_DATA_WRITE,58,243,216,47,ES_AUTOHSCROLL
+    PUSHBUTTON      "Write left data",IDC_BUTTON_DATA_WRITE_EDIT,284,243,75,14
+    PUSHBUTTON      "Write 0X00",IDC_BUTTON_DATA_WRITE_ZERO,284,260,75,14
+    PUSHBUTTON      "Write 0XFF",IDC_BUTTON_DATA_WRITE_0XFF,284,278,75,14
+    PUSHBUTTON      "Write random",IDC_BUTTON_DATA_WRITE_RANDOM,284,295,75,14
+    PUSHBUTTON      "Write  increment.",IDC_BUTTON_DATA_WRITE_INC,284,313,75,14
+    LTEXT           "Read out:",IDC_STATIC,14,296,37,8
+    EDITTEXT        IDC_EDIT_BLOCK_DATA_READOUT,58,294,216,47,ES_AUTOHSCROLL | ES_READONLY
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_LOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 232
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 173
+    END
+
+    IDD_BASIC_DIALOG_CN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 366
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 346
+    END
+
+    IDD_BASIC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 366
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 346
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "关于 Basic(&A)..."
+END
+
+#endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英语(美国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG 0, 0, 235, 168
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Basic demo"
+FONT 8, "Cambria"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,178,147,50,14,WS_GROUP
+    EDITTEXT        IDC_EDIT_ABOUT,7,7,166,154,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 英语(美国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Basic.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

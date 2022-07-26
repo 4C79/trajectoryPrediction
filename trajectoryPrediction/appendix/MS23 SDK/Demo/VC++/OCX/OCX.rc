@@ -1,0 +1,231 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// ∏úê`(ùñº´®€∏ú±◊) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(950)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\OCX.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\OCX.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "üˆÙ¿ OCX"
+FONT 9, "Ÿ˛ÍN"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "OCX 1.0 ‡¶",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "‡¶?à~Ù¨ (C) 2013",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "∏¥”Á",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_OCX_DIALOG DIALOGEX 0, 0, 643, 265
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "OCX(2 Cameras Demo)"
+FONT 9, "Ÿ˛ÍN", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Camera Settins",IDC_BUTTON_CAMERA_SET,70,218,92,14
+    PUSHBUTTON      "Snapshot",IDC_BUTTON_SNAPSHOT,7,239,50,14
+    EDITTEXT        IDC_EDIT1,70,239,117,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Pause",IDC_BUTTON_PAUSE,7,218,50,14
+    CONTROL         "JPG",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,191,241,28,10
+    CONTROL         "BMP",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,222,241,28,10
+    PUSHBUTTON      "SnapToBuffer",IDC_BUTTON_SNAP_TO_BUFFER,257,219,50,14
+    PUSHBUTTON      "Camera Settins",IDC_BUTTON_CAMERA_SET2,394,218,92,14
+    PUSHBUTTON      "Snapshot",IDC_BUTTON_SNAPSHOT2,331,239,50,14
+    EDITTEXT        IDC_EDIT2,394,239,117,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Pause",IDC_BUTTON_PAUSE2,331,218,50,14
+    CONTROL         "JPG",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,515,241,28,10
+    CONTROL         "BMP",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,546,241,28,10
+    PUSHBUTTON      "SnapToBuffer",IDC_BUTTON_SNAP_TO_BUFFER2,581,219,50,14
+    LTEXT           "Camera0",IDC_STATIC,7,3,85,8
+    LTEXT           "Camera1",IDC_STATIC,331,2,85,8
+    CONTROL         "",IDC_MINDVISIONCTRL1,
+                    "{2D6AC19F-854C-49C2-8366-AE2BD293881F}",WS_TABSTOP,7,14,298,197
+    CONTROL         "",IDC_MINDVISIONCTRL2,
+                    "{2D6AC19F-854C-49C2-8366-AE2BD293881F}",WS_TABSTOP,336,13,298,197
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "FileDescription", "OCX Microsoft º€ª¡?¢JÕ[◊ÓÜt"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "OCX"
+            VALUE "LegalCopyright", "‡¶?à~Ù¨ (C) 2013"
+            VALUE "OriginalFilename", "OCX.EXE"
+            VALUE "ProductName", "OCX ¢JÕ[◊ÓÜt"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_OCX_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 634
+        BOTTOMMARGIN, 258
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_OCX_DIALOG DLGINIT
+BEGIN
+    IDC_MINDVISIONCTRL1, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x2e33, 0x0000, 0x1e98, 0x0000, 0x0000, 
+0x0000, 
+    IDC_MINDVISIONCTRL2, 0x376, 20, 0
+0x0000, 0x0000, 0x0000, 0x0001, 0x2e33, 0x0000, 0x1e98, 0x0000, 0x0000, 
+0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "üˆÙ¿ OCX(&A)..."
+END
+
+#endif    // ∏úê`(ùñº´®€∏ú±◊) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(950)
+#endif //_WIN32
+#include "res\OCX.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

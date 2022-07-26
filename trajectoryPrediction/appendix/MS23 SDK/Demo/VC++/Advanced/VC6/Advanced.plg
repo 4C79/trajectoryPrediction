@@ -1,0 +1,36 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Advanced - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "D:\Users\ADMINI~1\AppData\Local\Temp\RSP6D3F.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\..\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "DYNAMIC_LOAD_DLL" /Fo".\Debug/" /Fd".\Debug/" /FD /GZ /c 
+"L:\MindVision\DigitalLab\TestRoot\Demo\VC++\Advanced\AdvancedDlg.cpp"
+]
+Creating command line "cl.exe @D:\Users\ADMINI~1\AppData\Local\Temp\RSP6D3F.tmp" 
+Creating temporary file "D:\Users\ADMINI~1\AppData\Local\Temp\RSP6D40.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:".\Debug/Advanced.pdb" /debug /machine:I386 /out:".\Debug/Advanced.exe" /pdbtype:sept 
+".\Debug\Advanced.obj"
+".\Debug\AdvancedDlg.obj"
+".\Debug\SdkCallTrace.obj"
+".\Debug\UdefClrTmp.obj"
+".\Debug\Advanced.res"
+]
+Creating command line "link.exe @D:\Users\ADMINI~1\AppData\Local\Temp\RSP6D40.tmp"
+<h3>Output Window</h3>
+Compiling...
+AdvancedDlg.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+Advanced.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
