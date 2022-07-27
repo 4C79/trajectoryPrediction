@@ -1,7 +1,7 @@
 # coding=utf-8
 import cv2
 import numpy as np
-# from camera import mvsdk
+from camera import mvsdk
 import platform
 from detect import orange_prediction
 from detect import blackCircle_Finder
@@ -139,6 +139,7 @@ def main_loop(path):
     mvsdk.CameraAlignFree(pFrameBuffer0)
     mvsdk.CameraAlignFree(pFrameBuffer1)
 
+
 def fromImgPlay():
     path = "..\\\\data"
     pp = placement_prediction
@@ -156,6 +157,7 @@ def getData():
     finally:
         cv2.destroyAllWindows()
 
+
 # 默认路径 "../data/l"
 def kalmanFilter(path):
     kf = KalmanFilter()
@@ -164,24 +166,22 @@ def kalmanFilter(path):
     test = path + "/" + path_list[0]
     print(test)
     img_fin = cv2.imread(test)
-    cv2.imshow("s",img_fin)
+    cv2.imshow("s", img_fin)
     cv2.putText(img_fin, "Kalman prediction trajectory", (10, 20), cv2.FONT_HERSHEY_SIMPLEX,
                 0.7, (255, 0, 0), 1, cv2.LINE_AA)
     cv2.putText(img_fin, "Actual trajectory", (10, 40), cv2.FONT_HERSHEY_SIMPLEX,
                 0.7, (0, 0, 255), 1, cv2.LINE_AA)
 
-    for i in range(0,len(path_list)):
+    for i in range(0, len(path_list)):
         img = path + '\\\\' + path_list[i]
         box = bd.circle_detectImage(cv2.imread(img))
-        predicted = kf.predict2D(box[0],box[1])
-        print(box,predicted)
+        predicted = kf.predict2D(box[0], box[1])
+        print(box, predicted)
         cv2.circle(img_fin, box, 11, (0, 0, 255), 2)
         if i != 0:
             cv2.circle(img_fin, predicted, 11, (255, 0, 0), 2)
-    cv2.imwrite("img_kal.jpg",img_fin)
-
-
+    cv2.imwrite("img_kal.jpg", img_fin)
 
 
 if __name__ == '__main__':
-    fromImgPlay()
+    getData()
