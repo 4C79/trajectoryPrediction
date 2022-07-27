@@ -148,7 +148,7 @@ def fromImgPlay():
 
 
 # 需要保证帧率稳定且电脑处理速度快
-def fromCameraPlay():
+def getData():
     try:
         path = "..\\\\data"
         # pp = placement_prediction
