@@ -50,10 +50,10 @@ def getAns(path_dir_l, path_dir_r):
         circle_l = bf.circle_detectImage(l)
         circle_r = bf.circle_detectImage(r)
         if circle_l == None or circle_r == None :
-            if flag == 0 :
+            # if flag == 0 :
                 continue
-            else :
-                break
+            # else :
+            #     break
         # print(circle_l,circle_r)
         saveProcess_l(l,path_l_list[i],circle_l)
         saveProcess_r(r,path_r_list[i],circle_r)
@@ -66,3 +66,29 @@ def getAns(path_dir_l, path_dir_r):
 
     # up.transport(res)
     return lm.lsm(res)
+
+# 默认路径 "../data/l"
+def kalmanFilter(path):
+    kf = KalmanFilter()
+    bd = blackCircle_Finder
+    path_list = os.listdir(path)
+    test = path + "/" + path_list[0]
+    # print(test)
+    img_fin = cv2.imread(test)
+    # cv2.imshow("s", img_fin)
+    cv2.putText(img_fin, "Kalman prediction trajectory", (10, 20), cv2.FONT_HERSHEY_SIMPLEX,
+                0.7, (255, 0, 0), 1, cv2.LINE_AA)
+    cv2.putText(img_fin, "Actual trajectory", (10, 40), cv2.FONT_HERSHEY_SIMPLEX,
+                0.7, (0, 0, 255), 1, cv2.LINE_AA)
+
+    for i in range(0, len(path_list)):
+        img = path + '\\\\' + path_list[i]
+        box = bd.circle_detectImage(cv2.imread(img))
+        if box == None :
+            continue
+        predicted = kf.predict2D(box[0], box[1])
+        # print(box, predicted)
+        cv2.circle(img_fin, box, 11, (0, 0, 255), 2)
+        if i > 3 :
+            cv2.circle(img_fin, predicted, 11, (255, 0, 0), 2)
+    cv2.imwrite("img_kal.jpg", img_fin)

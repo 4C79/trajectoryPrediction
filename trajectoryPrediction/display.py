@@ -75,17 +75,18 @@ class Ui_MainWindow(object):
 
     # 运行程序，检测轨迹
     def task_2(self):
-        resource = "camera/img_kal.jpg"
+        self.pp.kalmanFilter(self.origin_path+"//l")
+        resource = "img_kal.jpg"
         self.label.setScaledContents(True)
         self.label.setPixmap(QPixmap(resource))
 
     def task_3(self):
-        resource = "camera/trajectory.jpg"
+        resource = "trajectory.jpg"
         self.label.setScaledContents(True)
         self.label.setPixmap(QPixmap(resource))
 
     def task_4(self):
-        resource = "camera/trajectory_prediction.jpg"
+        resource = "trajectory_prediction.jpg"
         self.label.setScaledContents(True)
         self.label.setPixmap(QPixmap(resource))
 

@@ -10,7 +10,7 @@ def circle_detectFrame(frame):
     maxx = frame.shape[0]
     maxy = frame.shape[1]
     # 进行中值滤波
-    img = cv2.medianBlur(frame, 5)
+    img = cv2.medianBlur(frame, 3)
 
     # 霍夫变换圆检测
     circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, 50, param1=100, param2=30, minRadius=1, maxRadius=100)
@@ -41,6 +41,7 @@ def circle_detectImage(image):
 
     # 灰度化
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
     # 输出图像大小，方便根据图像大小调节minRadius和maxRadius
     # print(image.shape)
     maxx = gray.shape[0]
@@ -49,7 +50,7 @@ def circle_detectImage(image):
     img = cv2.medianBlur(gray, 5)
 
     # 霍夫变换圆检测
-    circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, 50, param1=100, param2=22, minRadius=0)
+    circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, 50, param1=100, param2=23, minRadius=5)
     if circles is None:
         return 0
     for circle in circles[0]:
@@ -74,6 +75,6 @@ def circle_detectImage(image):
 
 
 if __name__ == '__main__':
-    img = cv2.imread("..\data\\l\\111.jpg")
+    img = cv2.imread("..\data\\l\\401.jpg")
     tmp = circle_detectImage(img)
     print(tmp)
