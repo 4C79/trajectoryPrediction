@@ -1,7 +1,7 @@
 # coding=utf-8
 import cv2
 import numpy as np
-# from camera import mvsdk
+from camera import mvsdk
 import platform
 from detect import orange_prediction
 from detect import blackCircle_Finder
@@ -66,9 +66,9 @@ def main_loop(path):
 
     # 手动曝光，曝光时间20ms
     mvsdk.CameraSetAeState(hCamera0, 0)
-    mvsdk.CameraSetExposureTime(hCamera0, 3 * 1000)
+    mvsdk.CameraSetExposureTime(hCamera0, 2 * 1000)
     mvsdk.CameraSetAeState(hCamera1, 0)
-    mvsdk.CameraSetExposureTime(hCamera1, 3 * 1000)
+    mvsdk.CameraSetExposureTime(hCamera1, 2 * 1000)
 
     # 让SDK内部取图线程开始工作
     mvsdk.CameraPlay(hCamera0)
@@ -158,30 +158,5 @@ def getData():
         cv2.destroyAllWindows()
 
 
-# 默认路径 "../data/l"
-def kalmanFilter(path):
-    kf = KalmanFilter()
-    bd = blackCircle_Finder
-    path_list = os.listdir(path)
-    test = path + "/" + path_list[0]
-    print(test)
-    img_fin = cv2.imread(test)
-    cv2.imshow("s", img_fin)
-    cv2.putText(img_fin, "Kalman prediction trajectory", (10, 20), cv2.FONT_HERSHEY_SIMPLEX,
-                0.7, (255, 0, 0), 1, cv2.LINE_AA)
-    cv2.putText(img_fin, "Actual trajectory", (10, 40), cv2.FONT_HERSHEY_SIMPLEX,
-                0.7, (0, 0, 255), 1, cv2.LINE_AA)
-
-    for i in range(0, len(path_list)):
-        img = path + '\\\\' + path_list[i]
-        box = bd.circle_detectImage(cv2.imread(img))
-        predicted = kf.predict2D(box[0], box[1])
-        print(box, predicted)
-        cv2.circle(img_fin, box, 11, (0, 0, 255), 2)
-        if i != 0:
-            cv2.circle(img_fin, predicted, 11, (255, 0, 0), 2)
-    cv2.imwrite("img_kal.jpg", img_fin)
-
-
 if __name__ == '__main__':
-    fromImgPlay()
+    getData()

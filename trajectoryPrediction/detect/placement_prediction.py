@@ -6,18 +6,20 @@ from detect import LSM
 from detect import udp
 import os
 
-def saveProcess_l(frame,path,box):
-    cv2.circle(frame,box, 11, (255, 0, 0), 2)
-    path = "result\\\\l\\\\" + path
-    cv2.imwrite(path,frame)
 
-def saveProcess_r(frame,path,box):
-    cv2.circle(frame,box, 11, (255, 0, 0), 2)
+def saveProcess_l(frame, path, box):
+    cv2.circle(frame, box, 11, (255, 0, 0), 2)
+    path = "result\\\\l\\\\" + path
+    cv2.imwrite(path, frame)
+
+
+def saveProcess_r(frame, path, box):
+    cv2.circle(frame, box, 11, (255, 0, 0), 2)
     path = "result\\\\r\\\\" + path
-    cv2.imwrite(path,frame)
+    cv2.imwrite(path, frame)
+
 
 def getAns(path_dir_l, path_dir_r):
-
     bf = blackCircle_Finder
     lm = LSM
     up = udp
@@ -48,14 +50,14 @@ def getAns(path_dir_l, path_dir_r):
         r = cv2.imread(path_r)
         circle_l = bf.circle_detectImage(l)
         circle_r = bf.circle_detectImage(r)
-        if circle_l == None or circle_r == None :
+        if circle_l == None or circle_r == None:
             # if flag == 0 :
-                continue
+            continue
             # else :
             #     break
         # print(circle_l,circle_r)
-        saveProcess_l(l,path_l_list[i],circle_l)
-        saveProcess_r(r,path_r_list[i],circle_r)
+        saveProcess_l(l, path_l_list[i], circle_l)
+        saveProcess_r(r, path_r_list[i], circle_r)
         tmp = calculate(circle_l, circle_r)
         # print(tmp)
         # print(path_l,path_r)
@@ -65,6 +67,7 @@ def getAns(path_dir_l, path_dir_r):
 
     # up.transport(res)
     return lm.lsm(res)
+
 
 # 默认路径 "../data/l"
 def kalmanFilter(path):
@@ -83,11 +86,11 @@ def kalmanFilter(path):
     for i in range(0, len(path_list)):
         img = path + '\\\\' + path_list[i]
         box = bd.circle_detectImage(cv2.imread(img))
-        if box == None :
+        if box == None:
             continue
         predicted = kf.predict2D(box[0], box[1])
         # print(box, predicted)
         cv2.circle(img_fin, box, 11, (0, 0, 255), 2)
-        if i > 3 :
+        if i > 3:
             cv2.circle(img_fin, predicted, 11, (255, 0, 0), 2)
     cv2.imwrite("img_kal.jpg", img_fin)
