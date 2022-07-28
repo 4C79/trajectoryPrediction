@@ -2,7 +2,6 @@ import cv2
 from detect.kalmanfilter import KalmanFilter
 from detect import blackCircle_Finder
 from detect.EPNP import calculate
-from detect import orange_prediction
 from detect import LSM
 from detect import udp
 import os
