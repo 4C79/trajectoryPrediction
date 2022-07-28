@@ -221,23 +221,31 @@ def calculate(tar_1, tar_2):
            [0, 0, 0],
            [0, 60, 0],
            [-33, 0, 0]]]
-    p2 = [[[253, 325],
-           [256, 426],
-           [455, 416],
-           [255, 388],
-           [195, 330],
-           [173, 451],
-           [374, 459],
-           [195, 407]]]
+    # p2 = [[[767, 992],
+    #        [778, 1301],
+    #        [1380, 1270],
+    #        [774, 1184],
+    #        [599, 949],
+    #        [533, 1251],
+    #        [1136, 1269],
+    #        [601, 1140]]]
+    p2 = [[[198, 309],
+           [176, 409],
+           [376, 415],
+           [199, 372],
+           [253, 325],
+           [257, 427],
+           [455, 417],
+           [255, 388]]]
     # print("***************************************")
     # print("Begin")
     # print("***************************************")
     parser_l = argparse.ArgumentParser(description='test')
-    parser_l.add_argument('-file', type=str, default='detect/calibration_l.csv')
+    parser_l.add_argument('-file', type=str, default='detect\calibration_l.csv')
     args_l = parser_l.parse_args()
 
     parser_r = argparse.ArgumentParser(description='test2')
-    parser_r.add_argument('-file', type=str, default='detect/calibration_r.csv')
+    parser_r.add_argument('-file', type=str, default='detect\calibration_r.csv')
     args_r = parser_r.parse_args()
 
     p4psolver1 = PNPSolver()
@@ -321,4 +329,4 @@ def calculate(tar_1, tar_2):
     return pt
 
 if __name__ == '__main__':
-    print(calculate((434,380),(375,414)))
+    print(calculate((1312,1160),(1139,1158)))

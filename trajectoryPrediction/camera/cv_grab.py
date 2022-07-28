@@ -1,7 +1,7 @@
 # coding=utf-8
 import cv2
 import numpy as np
-from camera import mvsdk
+# from camera import mvsdk
 import platform
 from detect import orange_prediction
 from detect import blackCircle_Finder
@@ -159,4 +159,4 @@ def getData():
 
 
 if __name__ == '__main__':
-    getData()
+    fromImgPlay()

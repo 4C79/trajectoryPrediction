@@ -12,11 +12,11 @@ img_points = []  # 存储2D点
 images = glob.glob("D:\project/trajectoryPrediction/trajectoryPrediction\calibration/r\*.jpg")
 for fname in images:
     img = cv2.imread(fname)
-    cv2.imshow('img', img)
+    # cv2.imshow('img', img)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     size = gray.shape[::-1]
     ret, corners = cv2.findChessboardCorners(gray, (7, 7), None)
-    print(ret)
+    # print(ret)
     if ret:
         obj_points.append(objp)
     corners2 = cv2.cornerSubPix(gray, corners, (5, 5), (-1, -1), criteria)  # 在原角点的基础上寻找亚像素角点
@@ -27,10 +27,10 @@ for fname in images:
         img_points.append(corners)
 
     cv2.drawChessboardCorners(img, (8, 6), corners, ret)  # 记住，OpenCV的绘制函数一般无返回值
-    cv2.imshow('img', img)
-    cv2.waitKey(2000)
+    # cv2.imshow('img', img)
+    # cv2.waitKey(2000)
 
-print(len(img_points))
+# print(len(img_points))
 cv2.destroyAllWindows()
 # 标定
 ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(obj_points, img_points, size, None, None)

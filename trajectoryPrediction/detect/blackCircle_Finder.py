@@ -50,7 +50,7 @@ def circle_detectImage(image):
     img = cv2.medianBlur(gray, 5)
 
     # 霍夫变换圆检测
-    circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, 50, param1=100, param2=30, minRadius=0)
+    circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, 50, param1=100, param2=22, minRadius=0)
     if circles is None:
         return None
     for circle in circles[0]:
@@ -75,6 +75,6 @@ def circle_detectImage(image):
 
 
 if __name__ == '__main__':
-    img = cv2.imread("..\data\\r\\309.jpg")
+    img = cv2.imread("..\data\\r\\113.jpg")
     tmp = circle_detectImage(img)
     print(tmp)
