@@ -36,6 +36,7 @@ def function(para, input):
 
 def draw_predictionTrajectory(x,y,z,f1,f2):
     maxI = int(max(z))
+    data = []
 
     x_p = []
     y_p = []
@@ -45,6 +46,9 @@ def draw_predictionTrajectory(x,y,z,f1,f2):
         y_p.append(function(f2,i))
         z_p.append(i)
 
+    for i in range(0,maxI):
+        data.append([x_p[i],y_p[i],z_p[i]])
+
     fig = plt.figure()
     ax2 = fig.gca(projection="3d",title="trajectory_prediction")
     ax2.plot(x_p,y_p,z_p,color="red",linestyle="-")
@@ -52,6 +56,7 @@ def draw_predictionTrajectory(x,y,z,f1,f2):
     ax2.set_ylabel("Y Label")
     ax2.set_zlabel("Z Label")
     plt.savefig('trajectory_prediction.jpg', bbox_inches='tight', dpi=450)
+    return data
 
 def lsm(point):
     x, y, z = get_xyz(point)
@@ -67,8 +72,8 @@ def lsm(point):
     # plt.legend()
     # plt.show()
     plt.savefig('trajectory.jpg', bbox_inches='tight', dpi=450)
-    draw_predictionTrajectory(x,y,z,f1,f2)
-    return (function(f1,0), function(f2,0))
+    data = draw_predictionTrajectory(x,y,z,f1,f2)
+    return data
 
 
 # if __name__ == '__main__':

@@ -6,12 +6,15 @@ from PyQt5.QtWidgets import QApplication, QMainWindow ,QMessageBox
 import tkinter as tk
 from tkinter import filedialog
 from detect import placement_prediction
+from detect import udp
 
 
 class Ui_MainWindow(object):
 
     origin_path = "data"
     pp = placement_prediction
+    up = udp
+    data = []
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -91,11 +94,11 @@ class Ui_MainWindow(object):
         self.label.setPixmap(QPixmap(resource))
 
     def task_5(self):
-        print()
+        self.up.transport(self.data)
 
     def task_6(self):
-        res = self.pp.getAns(self.origin_path + '\\\\l', self.origin_path + '\\\\r')
-        msg_box = QMessageBox(QMessageBox.Information, '提示', '处理完毕，落点预测坐标为：' + str(res))
+        self.data = self.pp.getAns(self.origin_path + '\\\\l', self.origin_path + '\\\\r')
+        msg_box = QMessageBox(QMessageBox.Information, '提示', '处理完毕，落点预测坐标为：' + str(self.data[0]))
         msg_box.exec_()
 
     def get_file(path):  # 获取所有文件
